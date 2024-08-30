@@ -5,34 +5,51 @@ body, html {
     width: 100%;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    .fullscreen-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        font-size: 2em;
-        text-align: center;
-        flex-wrap: wrap;
-        .image {
-            width: 20%;
-            max-width: 100px;
-            height: auto;
-            margin: 0 10px;
-            opacity: 0; /* Comienza invisible */
-            transform: translateY(20px); /* Mueve la imagen hacia abajo */
-            animation: slideIn 0.5s forwards; /* Aplica la animación */
-            .image-left {
-                animation-delay: 0.3s; /* Retraso para la imagen izquierda */
-            }
+}
 
-            .image-right {
-                animation-delay: 0.3s; /* Retraso para la imagen derecha */
-            }
-
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+    background-color: #3b3b3b;
+    li{
+        list-style: none;
+        text-decoration: none;
+        a{
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
         }
+    }
+}
+
+.fullscreen-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #494949;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    flex-wrap: nowrap; /* Asegura que las imágenes no se envuelvan */
+    .image {
+        width: 20%; /* Ancho razonable para imágenes */
+        max-width: 200px;
+        height: auto;
+        margin: 0 10px;
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(20px); /* Mueve la imagen hacia abajo */
+        animation: slideIn 0.5s forwards; /* Aplica la animación */
+    }
+    .image-left {
+        animation-delay: 0.3s; /* Retraso para la imagen izquierda */
+    }
+    .image-right {
+        animation-delay: 0.3s; /* Retraso para la imagen derecha */
     }
 }
 
@@ -46,10 +63,10 @@ body, html {
 @media (max-width: 600px) {
     .fullscreen-content {
         font-size: 1.5em;
-    }
-
-    .image {
-        width: 30%;
-        max-width: 80px;
+        flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
+        .image {
+            width: 45%; /* Ajustar el ancho para mantenerlas en la misma línea */
+            max-width: 80px;
+        }
     }
 }
