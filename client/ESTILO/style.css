@@ -1,0 +1,55 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    .fullscreen-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        flex-wrap: wrap;
+        .image {
+            width: 20%;
+            max-width: 100px;
+            height: auto;
+            margin: 0 10px;
+            opacity: 0; /* Comienza invisible */
+            transform: translateY(20px); /* Mueve la imagen hacia abajo */
+            animation: slideIn 0.5s forwards; /* Aplica la animación */
+            .image-left {
+                animation-delay: 0.3s; /* Retraso para la imagen izquierda */
+            }
+
+            .image-right {
+                animation-delay: 0.3s; /* Retraso para la imagen derecha */
+            }
+
+        }
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1; /* Finaliza visible */
+        transform: translateY(0); /* Regresa a su posición original */
+    }
+}
+
+@media (max-width: 600px) {
+    .fullscreen-content {
+        font-size: 1.5em;
+    }
+
+    .image {
+        width: 30%;
+        max-width: 80px;
+    }
+}
