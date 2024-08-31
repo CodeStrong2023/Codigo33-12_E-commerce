@@ -3,70 +3,154 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
 }
 
 .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    padding: 20px;
     background-color: #3b3b3b;
-    li{
-        list-style: none;
-        text-decoration: none;
-        a{
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
+    padding: 20px;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+
+        li {
+            margin: 10px;
+
+            a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
         }
     }
 }
 
 .fullscreen-content {
+    background-color: #494949;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    background-color: #494949;
-    color: white;
-    font-size: 2em;
+}
+
+.product-container {
+    display: flex;
+    align-items: center;
     text-align: center;
-    flex-wrap: nowrap; /* Asegura que las imágenes no se envuelvan */
-    .image {
-        width: 20%; /* Ancho razonable para imágenes */
+
+    .product-image {
         max-width: 200px;
         height: auto;
-        margin: 0 10px;
-        opacity: 0; /* Comienza invisible */
-        transform: translateY(20px); /* Mueve la imagen hacia abajo */
-        animation: slideIn 0.5s forwards; /* Aplica la animación */
+        margin: 0 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideIn 0.5s forwards;
+
+        &.product-image-left {
+            animation-delay: 0.3s;
+        }
+
+        &.product-image-right {
+            animation-delay: 0.3s;
+        }
     }
-    .image-left {
-        animation-delay: 0.3s; /* Retraso para la imagen izquierda */
-    }
-    .image-right {
-        animation-delay: 0.3s; /* Retraso para la imagen derecha */
+
+    .product-title {
+        font-size: 2em;
+        flex-grow: 1;
     }
 }
 
 @keyframes slideIn {
     to {
-        opacity: 1; /* Finaliza visible */
-        transform: translateY(0); /* Regresa a su posición original */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media (max-width: 600px) {
-    .fullscreen-content {
-        font-size: 1.5em;
-        flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
-        .image {
-            width: 45%; /* Ajustar el ancho para mantenerlas en la misma línea */
-            max-width: 80px;
+.filters-and-search {
+    background-color: #f2f2f2;
+    padding: 20px;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+
+        li {
+            margin: 10px;
+
+            a {
+                color: #333;
+                text-decoration: none;
+            }
         }
+    }
+}
+
+.footer {
+    background-color: #3b3b3b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Esto es para el responsil */
+
+@media (max-width: 768px) {
+    .nav ul li {
+        margin: 5px;
+    }
+
+    .product-container {
+        flex-direction: column;
+
+        .product-image {
+            max-width: 150px;
+            width: 40%;
+            margin: 10px 0;
+        }
+
+        .product-title {
+            font-size: 1.8em;
+        }
+    }
+
+    .filters-and-search ul li {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav ul li a {
+        padding: 8px 16px;
+    }
+
+    .product-container {
+        .product-image {
+            max-width: 100px;
+            width: 35%;
+        }
+
+        .product-title {
+            font-size: 1.5em;
+        }
+    }
+
+    .filters-and-search ul li a {
+        font-size: 0.9em;
     }
 }

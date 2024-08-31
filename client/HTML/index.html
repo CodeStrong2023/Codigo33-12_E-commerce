@@ -4,33 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/client/ESTILO/style.css">
-    <title>Eccomerce</title>
+    <title>Ecommerce</title>
 </head>
 <body>
-    <div class="nav">
-        <li><a href="">ADIDAS</a></li>
-        <li><a href="">NIKE</a></li>
-        <li><a href="">NEW BALANCE</a></li>
-        <li><a href="">Carrito</a></li>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">ADIDAS</a></li>
+                <li><a href="#">NIKE</a></li>
+                <li><a href="#">NEW BALANCE</a></li>
+                <li><a href="#">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="fullscreen-content">
+        <div class="product-container">
+            <img src="/client/Imagenes/adidasGazelle/Gazellenegra.png" alt="Adidas Gazelle" class="product-image product-image-left">
+            <h1 class="product-title">RETRO</h1>
+            <img src="/client/Imagenes/nikeCortez/NikeCortezNegra.png" alt="Nike Cortez" class="product-image product-image-right">
+        </div>
+    </main>
+
+    <section class="filters-and-search">
+        <ul>
+            <li><a href="#">Filtros</a></li>
+            <li><a href="#">🔍</a></li>
+        </ul>
+    </section>
+
+    <div class="contenedor de productos">
+        <div></div>
     </div>
 
-    <div class="fullscreen-content">
-        <img src="/client/Imagenes/adidasGazelle/Gazellenegra.png" alt="Imagen 1" class="image image-left">
-        <h1>RETRO</h1>
-        <img src="/client/Imagenes/nikeCortez/NikeCortezNegra.png" alt="Imagen 2" class="image image-right">
-    </div>
+    <footer class="footer">
+        <p>&copy; 2024 CODIGO 33-12. Todos los derechos reservados.</p>
+    </footer>
 
-    <div class="filtrosandbusqueda">
-        <li><a href="">Filtros</a></li>
-        <li><a href="">🔍</a></li>
-    </div>
-    <div class="">
-        <div class=""></div>
-    </div>
-    <div class="footer">
-        <p></p>
-    </div>
-    
     <script src="/client/JAVASCRIP/productos.js"></script>
     <script src="/client/JAVASCRIP/app.js"></script>
 </body>
