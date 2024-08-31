@@ -2,50 +2,47 @@ const productos=[
     {
         id:111,
         productName:'Adidas Gazelle',
-        price:480.000,
+        price:480000,
         quanty:1,
-        imagen:'https://github.com/CodeStrong2023/Codigo33-12_E-commerce/blob/3a46b0420c2f2b94a8da763b34c94cf3a3b87a9a/client/Imagenes/adidasGazelle/Gazellenegra.png'
+        imagen:'/client/Imagenes/adidasGazelle/Gazellenegra.png'
     },
     {
         id:112,
         productName:'Adidas Gazelle',
-        price:480.000,
+        price:480000,
         quanty:1,
-        imagen:'https://github.com/CodeStrong2023/Codigo33-12_E-commerce/blob/3a46b0420c2f2b94a8da763b34c94cf3a3b87a9a/client/Imagenes/adidasGazelle/GazelleRoja.png'
+        imagen:'/client/Imagenes/adidasGazelle/GazelleRoja.png'
     },
     {
         id:113,
         productName:'Adidas Gazelle',
-        price:480.000,
+        price:480000,
         quanty:1,
-        imagen:'https://github.com/CodeStrong2023/Codigo33-12_E-commerce/blob/3a46b0420c2f2b94a8da763b34c94cf3a3b87a9a/client/Imagenes/adidasGazelle/GazelleVerde.png'
+        imagen:'/client/Imagenes/adidasGazelle/GazelleVerde.png'
     },
     {
         id:121,
         productName:'Adidas La trainer',
-        price:480.000,
+        price:480000,
         quanty:1,
-        imagen:'https://github.com/CodeStrong2023/Codigo33-12_E-commerce/blob/3a46b0420c2f2b94a8da763b34c94cf3a3b87a9a/client/Imagenes/AdidasLaTrainer/LatrainerNegroNa.png'
+        imagen:'/client/Imagenes/AdidasLaTrainer/LatrainerNegroNa.png'
     },
     {
         id:125,
         productName:'Adidas La trainer',
-        price:480.000,
+        price:480000,
         quanty:1,
-        imagen:'https://github.com/CodeStrong2023/Codigo33-12_E-commerce/blob/3a46b0420c2f2b94a8da763b34c94cf3a3b87a9a/client/Imagenes/AdidasLaTrainer/LatrainerAzul.png'
+        imagen:'/client/Imagenes/AdidasLaTrainer/LatrainerAzul.png'
     },
     {
         id:124,
         productName:'Adidas La trainer',
-        price:480.000,
+        price:480000,
         quanty:1,
-        imagen:'https://github.com/CodeStrong2023/Codigo33-12_E-commerce/blob/3a46b0420c2f2b94a8da763b34c94cf3a3b87a9a/client/Imagenes/AdidasLaTrainer/LatrainerGrisos.png'
+        imagen:'/client/Imagenes/AdidasLaTrainer/LatrainerGrisos.png'
     },
 
 ]
-
-
-
 
 // Adidas lleva el id = 1 que corresponde al primer numero del id, despues el modelo segun la carga se le pone otro id,
 // ese id corresponde al segundo numero y el color es el tercer numero del id por eso lleva 3 numeros :)

@@ -28,13 +28,24 @@
 
     <section class="filters-and-search">
         <ul>
-            <li><a href="#">Filtros</a></li>
-            <li><a href="#">🔍</a></li>
+            <div id="filters">
+                <button class="btn">
+                    <span class="icon">
+                        <svg viewBox="0 0 175 80" width="40" height="40">
+                            <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                            <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                            <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                        </svg>
+                    </span>
+                    <span class="text">FILTROS</span>
+                </button>
+            </div>
+            <div class="fyb  Buscar">🔍</div>
         </ul>
     </section>
 
-    <div class="contenedor de productos">
-        <div></div>
+    <div class="card-products-container">
+        <div class="card-products" id="shopContent"></div>
     </div>
 
     <footer class="footer">
