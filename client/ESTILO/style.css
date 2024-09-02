@@ -1,4 +1,4 @@
-body, html {
+body, html {/*Estilos generales*/
     background-color: #494949;
     margin: 0;
     padding: 0;
@@ -6,8 +6,9 @@ body, html {
     width: 100%;
     overflow-x: hidden;
     font-family: Arial, sans-serif;
-}
+}/*Fin estilos generales*/
 
+/*Estilos para lo que hace de navegador*/
 .nav {
     background-color: #3b3b3b;
     padding: 20px;
@@ -31,44 +32,45 @@ body, html {
             }
         }
     }
-}
+}/*Fin de estilos para el nav*/
 
+/*Estilos para pantalla central*/
 .fullscreen-content {
-    background-color: #494949;
+    background-color: #3b3b3b;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
-}
+    .product-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        .product-image {
+            max-width: 200px;
+            height: auto;
+            margin: 0 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s forwards;
 
-.product-container {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    .product-image {
-        max-width: 200px;
-        height: auto;
-        margin: 0 20px;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: slideIn 0.5s forwards;
+            &.product-image-left {
+                animation-delay: 0.3s;
+            }
 
-        &.product-image-left {
-            animation-delay: 0.3s;
+            &.product-image-right {
+                animation-delay: 0.3s;
+            }
         }
-
-        &.product-image-right {
-            animation-delay: 0.3s;
+        .product-title {
+            font-size: 2em;
+            flex-grow: 1;
         }
     }
+}/*Fin de estilos para la pagina central*/
 
-    .product-title {
-        font-size: 2em;
-        flex-grow: 1;
-    }
-}
+/*Style de los productos creados desde Js*/
 .card-products-container{
     margin: 5vh auto;
     .card-products{
@@ -78,25 +80,39 @@ body, html {
         justify-content: space-around;
         flex-wrap: wrap;
         padding: 5px;
-        img{
-            border: solid 1px black;
-            margin-top: 40px;
-            width: 250px;
-            height: auto;
-        }
-        button{
-            border: none;
-            outline: 0;
+        .product {
+            border: 1px solid #ccc;
             padding: 10px;
-            color: white;
-            background-color: black;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
-            cursor: pointer;
-            width: 100%;
-            font-size: 15px;
+            img {
+                width: 27vh; /* Establece el ancho del contenedor */
+                height: 20vh; /* Establece la altura del contenedor */
+                overflow: hidden; /* Oculta cualquier contenido desbordado (imagen recortada) */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: contain;
+            }
+            .buy-button {
+                outline: 0;
+                background-color: #000000;
+                width: 90%;
+                color: white;
+                border: none;
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
         }
     }
-}
+}/*Fin de estilos para los productos traidos desde JS*/
 
 @keyframes slideIn {
     to {
@@ -105,9 +121,8 @@ body, html {
     }
 }
 
-.filters-and-search {
+.filters-and-search {/*Estilos para los filtros y buscar*/
     padding: 10px;
-    border-top: solid 5px #3b3b3b;
     ul {
         display: flex;
         justify-content: left;
@@ -129,19 +144,18 @@ body, html {
                 margin-left: 5px;
                 border-radius: 50px;
             } 
-        }
-        
+        } 
     }
-}
+}/*Fin de estilos para filtros y buscar*/
 
-.footer {
+.footer {/*Estilos del footer*/
     background-color: #3b3b3b;
     color: white;
     padding: 10px;
     text-align: center;
-}
+}/*Fin de estilos para el footer*/
 
-/* From Uiverse.io by gagan-gv */  
+/* From Uiverse.io by gagan-gv */ /*Boton de filtros*/ 
 .btn {
     width: 120px; /* Ancho reducido */
     height: 40px; /* Altura reducida */
@@ -192,7 +206,7 @@ body, html {
 .btn:active .icon {
     transform: scale(0.85); /* Efecto al presionar el botón */
 }
-
+/*Fin de estilos para el boton de filtros*/
 
 /* Esto es para el responsil */
 
