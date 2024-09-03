@@ -202,7 +202,8 @@ body, html {/*Estilos generales*/
 .footer {/*Estilos del footer*/
     background-color: #3b3b3b;
     color: white;
-    padding: 10px;
+    padding: 5px;
+    size: 3px;
     text-align: center;
 }/*Fin de estilos para el footer*/
 
