@@ -1,7 +1,7 @@
 const filtro = document.getElementById("filters");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalContainer = document.getElementById("modal-container");
-
+const aplica = []
 
 const displayCart = () =>{
     //Setteo de inicio
@@ -33,23 +33,23 @@ const displayCart = () =>{
     const modalBody = document.createElement('div');
     modalBody.className = "modal-body";
     modalBody.innerHTML = `
-    <div class="Lista-de-filtros">
+    <div>
         <ul>
-            <li>MARCAS <select name="marcas">
+            <li class="lista-de-filtros">MARCAS <select name="marcas">
                 <option>Adidas</option>
                 <option>Nike</option>
                 <option>New balance</option>
                 <option>Ninguno</option>
             </select></li>
             
-            <li>TALLE <select name="talle">
+            <li class="lista-de-filtros">TALLE <select name="talle">
                 <option>10</option>
                 <option>20</option>
                 <option>30</option>
                 <option>Ninguno</option>
             </select></li>
             
-            <li>COLORES <select name="colores">
+            <li class="lista-de-filtros">COLORES <select name="colores">
                 <option>Azul</option>
                 <option>Rojo</option>
                 <option>Negro</option>
@@ -58,7 +58,7 @@ const displayCart = () =>{
                 <option>Ninguno</option>
             </select></li>
             
-            <li>GENERO <select name="genero">
+            <li class="lista-de-filtros">GENERO <select name="genero">
                 <option>Femenino</option>
                 <option>Masculino</option>
                 <option>Unisex</option>
@@ -68,8 +68,25 @@ const displayCart = () =>{
         </ul>
     </div>
     `;
-
     modalContainer.append(modalBody);
+
+    //creacion de boton para guardar las elecciones
+    const modalApli = document.createElement('div');
+    modalApli.innerHTML = "Aplicar";
+    modalApli.className = "modal-apli";
+
+    //boton para guardar lo que quiere aplicar
+    modalApli.addEventListener("click", ()=>{
+        aplica.push({
+            marca: "marca",
+            talle: "talle",
+            colores:"colores",
+            genero:"geneo"
+        });
+    });
+    
+    modalContainer.append(modalApli);
+
 }
 
 filtro.addEventListener("click", displayCart)

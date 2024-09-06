@@ -341,6 +341,7 @@ body, html {/*Estilos generales*/
 }
 
 .modal-close{
+    size: 20px;
     float: right;
     cursor: pointer;
 }
@@ -351,4 +352,37 @@ body, html {/*Estilos generales*/
     margin-bottom: 20px;
     text-align: center;
 }
-/* FIN MODAL */
+.modal-body{
+    padding: 0;
+    margin: 0;
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    .lista-de-filtros{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        list-style: none;
+        text-align: center;
+        padding: 10px;
+        select{
+            padding: 6px;
+            text-align: justify;
+        }
+    }
+}
+.modal-apli{
+    outline: 0;
+    background-color: #000000;
+    width: 20%;
+    color: white;
+    border: none;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
