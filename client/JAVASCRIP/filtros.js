@@ -35,34 +35,40 @@ const displayCart = () =>{
     modalBody.innerHTML = `
     <div>
         <ul>
-            <li class="lista-de-filtros">MARCAS <select name="marcas">
+            <li class="lista-de-filtros">ORDENAR<select name="ordenar">
+                <option>Precio(Menor a Mayor)</option>
+                <option>Precio(Mayor a Menor)</option>
+                <option>Novedades</option>
+            </select></li>
+
+            <li class="lista-de-filtros">MARCAS<select name="marcas">
                 <option>Adidas</option>
                 <option>Nike</option>
                 <option>New balance</option>
-                <option>Ninguno</option>
+                <option>Todos</option>
             </select></li>
             
-            <li class="lista-de-filtros">TALLE <select name="talle">
+            <li class="lista-de-filtros">TALLE<select name="talle">
                 <option>10</option>
                 <option>20</option>
                 <option>30</option>
-                <option>Ninguno</option>
+                <option>Todos</option>
             </select></li>
             
-            <li class="lista-de-filtros">COLORES <select name="colores">
+            <li class="lista-de-filtros">COLORES<select name="colores">
                 <option>Azul</option>
                 <option>Rojo</option>
                 <option>Negro</option>
                 <option>Blanco</option>
                 <option>Verde</option>
-                <option>Ninguno</option>
+                <option>Todos</option>
             </select></li>
             
-            <li class="lista-de-filtros">GENERO <select name="genero">
+            <li class="lista-de-filtros">GENERO<select name="genero">
                 <option>Femenino</option>
                 <option>Masculino</option>
                 <option>Unisex</option>
-                <option>Ninguno</option>
+                <option>Todos</option>
             </select></li>
             
         </ul>
