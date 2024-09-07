@@ -21,9 +21,8 @@ body, html {/*Estilos generales*/
         margin: 0;
         padding: 0;
         flex-wrap: wrap;
-
         li {
-            margin: 10px;
+            margin: 10px;     
 
             a {
                 color: white;
@@ -308,10 +307,10 @@ body, html {/*Estilos generales*/
 }
 
 /*Codiggo prueba*/
-/* MODAL */
-.modal-overlay{
+/*        Modal      */
+.modal-overlay {
     display: none;
-    background-color: rgba(0, 0, 0, 0,5);
+    background-color: rgba(0, 0, 0, 0.5); /* Corregido el valor de opacidad */
     position: fixed;
     top: 0;
     left: 0;
@@ -320,69 +319,91 @@ body, html {/*Estilos generales*/
     z-index: 1;
 }
 
-.modal-container{
+.modal-container {
     display: none;
     background-color: #ffffff;
     box-shadow: 0px 3px 6px #00000029;
-    padding: 40px;
+    padding: 2em; 
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 500px;
-    width: 100%;
+    max-width: 90vw; /* Usar vw en lugar de px */
+    width: 80%;
     z-index: 1;
     max-height: 80vh;
     overflow-y: auto;
 }
 
-.modal-container::-webkit-scrollbar{
+.modal-container::-webkit-scrollbar {
     display: none;
 }
 
-.modal-close{
-    size: 20px;
+.modal-close {
+    font-size: 1.25em; /* Usar em para responsividad */
     float: right;
     cursor: pointer;
 }
 
-.modal-title{
-    font-size: 24px;
+.modal-title {
+    font-size: 1.5em; /* Usar em para responsividad */
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 1.25em; /* Usar em para responsividad */
     text-align: center;
 }
-.modal-body{
+
+.modal-body {
     padding: 0;
     margin: 0;
-    ul{
-        margin: 0;
-        padding: 0;
-    }
-    .lista-de-filtros{
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        list-style: none;
-        text-align: center;
-        padding: 10px;
-        select{
-            padding: 6px;
-            text-align: justify;
-        }
-    }
 }
-.modal-apli{
+
+.modal-body ul {
+    margin: 0;
+    padding: 0;
+}
+
+.lista-de-filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    padding: 1em; /* Usar em para responsividad */
+}
+
+.lista-de-filtros select {
+    padding: 0.5em; /* Usar em para responsividad */
+    text-align: justify;
+}
+
+.modal-apli {
     outline: 0;
     background-color: #000000;
-    width: 20%;
+    width: 10%; 
     color: white;
     border: none;
-    padding: 6px;
+    padding: 0.5em; /* Usar em para responsividad */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1em; /* Usar em para responsividad */
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 1em; /* Añadido margen para separación */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .modal-container {
+        padding: 1em; /* Reduce padding en pantallas más pequeñas */
+        max-width: 95vw; /* Aumenta el ancho máximo en pantallas pequeñas */
+    }
+
+    .modal-title {
+        font-size: 1.25em; /* Reduce el tamaño de fuente en pantallas pequeñas */
+    }
+
+    .modal-apli {
+        width: 20%; /* Hacer el botón más ancho en pantallas pequeñas */
+    }
 }

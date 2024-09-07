@@ -1,7 +1,7 @@
 const filtro = document.getElementById("filters");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalContainer = document.getElementById("modal-container");
-const aplica = []
+const aplica = [];
 
 const displayCart = () =>{
     //Setteo de inicio
@@ -26,7 +26,7 @@ const displayCart = () =>{
     modalHeader.append(modalClose);
 
     const modalTitle = document.createElement('div');
-    modalTitle.innerText = "Filtros";
+    modalTitle.innerText = "FILTROS";
     modalTitle.className = "modal-title";
     modalHeader.append(modalTitle);
 
@@ -81,9 +81,13 @@ const displayCart = () =>{
             marca: "marca",
             talle: "talle",
             colores:"colores",
-            genero:"geneo"
+            genero:"genero"
         });
+        console.log(aplica);
+        modalContainer.style.display = "none";
+        modalOverlay.style.display = "none";
     });
+
     
     modalContainer.append(modalApli);
 
