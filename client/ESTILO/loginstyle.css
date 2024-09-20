@@ -1,73 +1,115 @@
-* {
+/*Estilos generales*/
+body, html {
+    background-color: #3b3b3b;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: rgb(124,124,124);
-    background: radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(82,82,82,1) 100%);
+/*Estilos para lo que hace de navegador*/
+.nav {
+    background-color: #2a2a2d;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+}
+
+.nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.nav li {
+    margin: 10px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+/*Fin de estilos para el nav*/
+
+/*Estilos para la sección de login*/
+.login {
+    background-color: #3b3b3b;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/client/Imagenes/Fondos/Fondoparalogincompu.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
+    width: 100%;
 }
 
-.login-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    width: 300px;
-}
-.login{
-    background-color: #363638;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
+.login .container-login {
+    background-color: rgba(42, 42, 45, 0.5); /* Color oscuro con opacidad */
+    padding: 30px;
+    width: 100%;
+    max-width: 400px; /* Limita el ancho máximo en pantallas grandes */
 }
 
-h2 {
+.login h2 {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.input-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-button:hover {
-    background-color: rgb(20, 20, 20);
-}
-a{
-    margin-top: 25px;
+.login .input-group {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
 }
+
+.login input {
+    height: 30px;
+    border-radius: 30px;
+    background-color: rgba(255, 253, 253, 0.5);
+    border: solid 2px rgba(255, 253, 253, 0.5);
+    padding-left: 10px; /* Añade espacio dentro del input */
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column; /* Coloca los elementos del nav en columna en pantallas pequeñas */
+    }
+
+    .login {
+        background-size: contain; /* Ajusta la imagen de fondo en pantallas pequeñas */
+    }
+
+    .login .container-login {
+        padding: 20px;
+        width: 90%; /* Ocupa más espacio en pantallas pequeñas */
+    }
+
+    .login .input-group {
+        padding: 10px;
+    }
+
+    .login input {
+        height: 40px; /* Aumenta el tamaño de los inputs en pantallas táctiles */
+    }
+}
+
+/* Cambiar imagen de fondo si es una pantalla más pequeña */
+@media (max-width: 576px) {
+    .login {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/client/Imagenes/Fondos/Fondoparalogin.jpg');
+        background-size: cover;
+    }
+}
+
