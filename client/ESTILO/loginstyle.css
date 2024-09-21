@@ -72,7 +72,10 @@ body, html {
     flex-direction: column;
     padding: 20px;
 }
-
+.login a{
+    color: #ff5613;
+    text-decoration: none;
+}
 .login input {
     height: 30px;
     border-radius: 30px;
@@ -80,15 +83,31 @@ body, html {
     border: solid 2px rgba(255, 253, 253, 0.5);
     padding-left: 10px; /* Añade espacio dentro del input */
 }
+.login .boton{
+    color: black;
+    height: 35px;
+    background-color: rgba(255, 253, 253, 0.6);
+    border: solid 0.5px rgba(255, 253, 253, 0.9);
+    border-radius: 30px;
+    margin-left: 39%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.login p {
+    margin-left: 20px;
+    text-align: justify;
+}
 
 /* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .nav ul {
-        flex-direction: column; /* Coloca los elementos del nav en columna en pantallas pequeñas */
+        flex-direction: row; /* Coloca los elementos del nav en columna en pantallas pequeñas */
     }
 
     .login {
-        background-size: contain; /* Ajusta la imagen de fondo en pantallas pequeñas */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/client/Imagenes/Fondos/Fondoparalogin.jpg');
+        background-size: cover;
     }
 
     .login .container-login {
