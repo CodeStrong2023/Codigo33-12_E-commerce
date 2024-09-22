@@ -1,0 +1,457 @@
+body, html {/*Estilos generales*/
+    width: 100%;
+    height: 100%;
+    --s: 60px;
+    --c1: #000000;
+    --c2: #ff5613;
+    --_g: radial-gradient(
+        25% 25% at 25% 25%,
+        var(--c1) 99%,
+        rgba(0, 0, 0, 0) 101%
+    );
+    background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
+        calc(2 * var(--s)),
+        var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
+        radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
+        var(--s),
+        repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
+        calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}/*Fin estilos generales*/
+
+/*Estilos para lo que hace de navegador*/
+.nav {
+    background-color: #2a2a2d;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+
+        li {
+            margin: 10px;     
+
+            a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
+        }
+    }
+}/*Fin de estilos para el nav*/
+
+/*Estilos para pantalla central*/
+.fullscreen-content {
+    background-color: #3b3b3b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    .product-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        .product-image {
+            max-width: 200px;
+            height: auto;
+            margin: 0 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s forwards;
+
+            &.product-image-left {
+                animation-delay: 0.3s;
+            }
+
+            &.product-image-right {
+                animation-delay: 0.3s;
+            }
+        }
+        .product-title {
+            font-size: 2em;
+            flex-grow: 1;
+        }
+    }
+}/*Fin de estilos para la pagina central*/
+
+/*Style de los productos creados desde Js*/
+.card-products-container{
+    margin: 5vh auto;
+    .card-products{
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 5px;
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #fff;
+            img {
+                width: 27vh; /* Establece el ancho del contenedor */
+                height: 20vh; /* Establece la altura del contenedor */
+                overflow: hidden; /* Oculta cualquier contenido desbordado (imagen recortada) */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: contain;
+            }
+            .buy-button {
+                outline: 0;
+                background-color: #000000;
+                width: 90%;
+                color: white;
+                border: none;
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}/*Fin de estilos para los productos traidos desde JS*/
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filters-and-search {/*Estilos para los filtros y buscar*/
+    padding: 10px;
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding-top: 15px;
+        flex-wrap: wrap;
+    }
+}/*Fin de estilos para filtros y buscar*/
+
+/* Boton y input para buscar */
+.container {
+    padding: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px; /* Altura ajustada para mayor accesibilidad */
+}
+
+.input {
+    max-width: 190px;
+    height: 57%; /* Asegura que el input y el botón tengan la misma altura */
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #2a2a2d;
+    caret-color: #f7f7f8;
+    color: #fff;
+    padding: 7px 10px;
+    border: 2px solid transparent;
+    border-radius: 7px 0 0 7px; /* Usa shorthand para simplificación */
+    margin-right: 0; /* Elimina el margen derecho para alineación perfecta */
+    transition: background-color 0.2s ease, border-color 0.2s ease; /* Optimiza las transiciones */
+}
+
+.input:hover {
+    border-color: #ccc; /* Simplificación */
+}
+
+.input:focus {
+    border-color: #ff5613;
+    background-color: #0e0e10;
+}
+
+.search__btn {
+    border: none;
+    cursor: pointer;
+    background-color: #2a2a2d;
+    border-radius: 0 7px 7px 0; /* Usa shorthand para simplificación */
+    height: 100%; /* Asegura que el botón tenga la misma altura que el input */
+    width: 40px; /* Ajusta el ancho del botón */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease; /* Transición suave */
+    margin-left: -2px; /* Ajusta el margen para compensar el borde del input */
+}
+
+.search__btn:hover {
+    background-color: #363638;
+}
+
+/* Responsividad móvil */
+@media (max-width: 600px) {
+    .input {
+        max-width: 100%; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+
+    .search__btn {
+        width: 50px; /* Ancho mayor para facilidad en pantallas táctiles */
+    }
+}
+
+
+.footer {/*Estilos del footer*/
+    background-color: rgb(59, 59, 59, 0.7);
+    color: white;
+    padding: 5px;
+    size: 3px;
+    text-align: center;
+}/*Fin de estilos para el footer*/
+
+/* From Uiverse.io by gagan-gv */ /*Boton de filtros*/ 
+.btn {
+    width: 120px; /* Ancho reducido */
+    height: 40px; /* Altura reducida */
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s ease-in-out;
+    font-size: 14px; /* Tamaño de fuente reducido */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    background: #2a2a2d;
+    color: #f5f5f5;
+    position: relative; /* Asegura que el icono se posicione relativo al botón */
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px 0px white;
+}
+
+.btn .icon {
+    position: absolute;
+    height: 30px; /* Altura del icono reducida */
+    width: 50px; /* Ancho del icono reducido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.btn .text {
+    transform: translateX(40px); /* Ajuste para el texto */
+}
+
+.btn:hover .icon {
+    width: 130px; /* Ancho del icono en hover reducido */
+}
+
+.btn:hover .text {
+    transition: all 0.5s;
+    opacity: 0; /* Asegúrate de que esto sea lo que deseas */
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active .icon {
+    transform: scale(0.85); /* Efecto al presionar el botón */
+}
+/*Fin de estilos para el boton de filtros*/
+
+/* Esto es para el responsil */
+
+@media (max-width: 768px) {
+    .nav ul li {
+        margin: 5px;
+    }
+
+    .product-container {
+        flex-direction: column;
+
+        .product-image {
+            max-width: 150px;
+            width: 40%;
+            margin: 10px 0;
+        }
+
+        .product-title {
+            font-size: 1.8em;
+        }
+    }
+
+    .filters-and-search ul li {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav ul li a {
+        padding: 8px 16px;
+    }
+
+    .product-container {
+        .product-image {
+            max-width: 100px;
+            width: 35%;
+        }
+
+        .product-title {
+            font-size: 1.5em;
+        }
+    }
+
+    .filters-and-search ul li a {
+        font-size: 0.9em;
+    }
+}
+
+/*Codiggo prueba*/
+/*        Modal      */
+.modal-overlay {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.modal-container {
+    display: none;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 2em;
+    position: fixed; /* Cambiado de absolute a fixed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    width: 80%;
+    z-index: 2; /* Asegúrate de que esté por encima de la superposición */
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-container::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-close {
+    font-size: 1.25em;
+    float: right;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1.25em;
+    text-align: center;
+}
+
+.modal-body {
+    padding: 0;
+    margin: 0;
+}
+
+.modal-body ul {
+    margin: 0;
+    padding: 0;
+}
+
+.lista-de-filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    padding: 0.8em;
+}
+
+.lista-de-filtros select {
+    padding: 0.5em;
+    text-align: justify;
+}
+
+.modal-apli {
+    outline: 0;
+    background-color: #000000;
+    width: 10%;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+.modal-apli:hover {
+    background-color: #363638;
+}
+
+.modal-reset {
+    margin-left: 10px;
+    outline: 0;
+    background-color: #000000;
+    width: 10%;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+.modal-reset:hover {
+    background-color: #363638;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .modal-container {
+        padding: 1em;
+        max-width: 95vw;
+    }
+
+    .modal-title {
+        font-size: 1.25em;
+    }
+
+    .modal-apli {
+        width: 20%;
+    }
+
+    .modal-reset{
+        width: 25%;
+    }
+}
