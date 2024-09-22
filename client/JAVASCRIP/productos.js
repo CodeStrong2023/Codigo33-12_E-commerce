@@ -2,6 +2,8 @@ const productos=[
     {
         id:111,
         productName:'Adidas Gazelle',
+        color:'Negra',
+        talle:30,
         price:480000,
         quanty:1,
         imagen:'/client/Imagenes/adidasGazelle/Gazellenegra.png'
