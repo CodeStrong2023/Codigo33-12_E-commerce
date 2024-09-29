@@ -16,6 +16,9 @@ body, html {
     top: 0;
     width: 100%;
     z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .nav ul {

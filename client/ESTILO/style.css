@@ -17,6 +17,9 @@ body, html {/*Estilos generales*/
     top: 0;
     width: 100%;
     z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
     ul {
         display: flex;
         justify-content: center;
@@ -50,6 +53,10 @@ body, html {/*Estilos generales*/
     align-items: center;
     height: 100vh;
     width: 100%;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
     .product-container {
         display: flex;
         align-items: center;
