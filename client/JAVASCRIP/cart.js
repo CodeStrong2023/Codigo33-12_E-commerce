@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="quantity">
                         <span class="quantity-btn-decrese">-</span>
-                        <span class="quantity-input">${product.quantity}</span>
+                        <span class="quantity-input">${product.quanty}</span>
                         <span class="quantity-btn-increse">+</span>
                     </div>
-                    <div class="price">${product.price * product.quantity}</div>
+                    <div class="price">${product.price * product.quanty}</div>
                     <div class="delete-product">❌</div>
                 </div>
             `;
@@ -54,15 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
             // Lógica para aumentar/disminuir la cantidad y eliminar productos
             const decrese = modalBody.querySelector(".quantity-btn-decrese");
             decrese.addEventListener("click", () => {
-                if (product.quantity !== 1) {
-                    product.quantity--;
+                if (product.quanty !== 1) {
+                    product.quanty--;
                     displayCart();
                 }
             });
 
             const increse = modalBody.querySelector(".quantity-btn-increse");
             increse.addEventListener("click", () => {
-                product.quantity++;
+                product.quanty++;
                 displayCart();
             });
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Footer del modal
-        const total = cart.reduce((acc, el) => acc + (el.price * el.quantity), 0);
+        const total = cart.reduce((acc, el) => acc + (el.price * el.quanty), 0);
 
         const modalFooter = document.createElement('div');
         modalFooter.className = "modal-footer";
