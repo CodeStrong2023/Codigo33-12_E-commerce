@@ -1,21 +1,7 @@
 body, html {/*Estilos generales*/
     width: 100%;
     height: 100%;
-    --s: 60px;
-    --c1: #000000;
-    --c2: #ff5613;
-    --_g: radial-gradient(
-        25% 25% at 25% 25%,
-        var(--c1) 99%,
-        rgba(0, 0, 0, 0) 101%
-    );
-    background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
-        calc(2 * var(--s)),
-        var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
-        radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
-        var(--s),
-        repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
-        calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
+    background-color: #363638;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -54,7 +40,10 @@ body, html {/*Estilos generales*/
 
 /*Estilos para pantalla central*/
 .fullscreen-content {
-    background-color: #3b3b3b;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://i.pinimg.com/originals/db/6e/2f/db6e2f1f0479a0766de569273be9ba1e.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     display: flex;
     justify-content: center;
@@ -65,26 +54,6 @@ body, html {/*Estilos generales*/
         display: flex;
         align-items: center;
         text-align: center;
-        .product-image {
-            max-width: 200px;
-            height: auto;
-            margin: 0 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideIn 0.5s forwards;
-
-            &.product-image-left {
-                animation-delay: 0.3s;
-            }
-
-            &.product-image-right {
-                animation-delay: 0.3s;
-            }
-        }
-        .product-title {
-            font-size: 2em;
-            flex-grow: 1;
-        }
     }
 }/*Fin de estilos para la pagina central*/
 
@@ -219,7 +188,7 @@ body, html {/*Estilos generales*/
 
 
 .footer {/*Estilos del footer*/
-    background-color: rgb(59, 59, 59, 0.7);
+    background-color: #2a2a2d;
     color: white;
     padding: 5px;
     size: 3px;
