@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <title>login</title>
+    <title>Login</title>
 </head>
 <body> 
     <header>
@@ -19,10 +19,11 @@
             </ul>
         </nav>
     </header>
+    <!-- Contenedor de login/registro -->
     <div class="login" >
-        <div class="container-login">
+        <div class="container-login" id="container-login">
             <h2>Iniciar Sesión</h2>
-            <form action="login.php" method="post">
+            <form action="login.php" method="post" id="loginForm">
                 <div class="input-group">
                     <input type="text" id="username" name="username" placeholder=" 👤 USUARIO" required>
                 </div>
@@ -32,8 +33,9 @@
                 <p>Olvidaste tu contraseña? <a href="#">Restaurar contraseña.</a></p>
                 <button type="submit" class="boton">INGRESAR</button>
             </form>
-            <p>No tienees cuenta? <a href="#" class="registrarse">REGISTRARSE</a></p>
+            <p>No tienes cuenta? <a href="#" class="registrarse" id="registrarseLink">REGISTRARSE</a></p>
         </div>
     </div>
+    <script src="/client/JAVASCRIP/registro_login.js"></script>
 </body>
 </html>
