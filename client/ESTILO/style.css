@@ -1,21 +1,7 @@
 body, html {/*Estilos generales*/
     width: 100%;
     height: 100%;
-    --s: 60px;
-    --c1: #000000;
-    --c2: #ff5613;
-    --_g: radial-gradient(
-        25% 25% at 25% 25%,
-        var(--c1) 99%,
-        rgba(0, 0, 0, 0) 101%
-    );
-    background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
-        calc(2 * var(--s)),
-        var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
-        radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
-        var(--s),
-        repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
-        calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
+    background-color: #503C3C;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -25,12 +11,15 @@ body, html {/*Estilos generales*/
 
 /*Estilos para lo que hace de navegador*/
 .nav {
-    background-color: #2a2a2d;
+    background-color: #3E3232;
     padding: 10px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
     ul {
         display: flex;
         justify-content: center;
@@ -52,41 +41,59 @@ body, html {/*Estilos generales*/
     }
 }/*Fin de estilos para el nav*/
 
-/*Estilos para pantalla central*/
+/* Estilos para pantalla central */
 .fullscreen-content {
-    background-color: #3b3b3b;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+    url('https://i.pinimg.com/originals/db/6e/2f/db6e2f1f0479a0766de569273be9ba1e.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
-    .product-container {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        .product-image {
-            max-width: 200px;
-            height: auto;
-            margin: 0 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideIn 0.5s forwards;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
 
-            &.product-image-left {
-                animation-delay: 0.3s;
-            }
+/* Animación mejorada para el texto "RETRO" */
+.product-title {
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(50px); /* Posición inicial fuera de la pantalla */
+    animation: fadeInSlideUp 2s ease forwards, bounce 0.5s 2s ease-out forwards;
+}
 
-            &.product-image-right {
-                animation-delay: 0.3s;
-            }
-        }
-        .product-title {
-            font-size: 2em;
-            flex-grow: 1;
-        }
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
     }
-}/*Fin de estilos para la pagina central*/
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Estilos para el contenedor del producto */
+.product-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
 
 /*Style de los productos creados desde Js*/
 .card-products-container{
@@ -184,7 +191,7 @@ body, html {/*Estilos generales*/
 }
 
 .input:focus {
-    border-color: #ff5613;
+    border-color: #7E6363;
     background-color: #0e0e10;
 }
 
@@ -219,7 +226,7 @@ body, html {/*Estilos generales*/
 
 
 .footer {/*Estilos del footer*/
-    background-color: rgb(59, 59, 59, 0.7);
+    background-color: #3E3232;
     color: white;
     padding: 5px;
     size: 3px;
@@ -341,7 +348,7 @@ body, html {/*Estilos generales*/
 
 .modal-container {
     display: none;
-    background-color: #ffffff;
+    background-color: #E0CCBE;
     box-shadow: 0px 3px 6px #00000029;
     padding: 2em;
     position: fixed; /* Cambiado de absolute a fixed */
@@ -370,6 +377,9 @@ body, html {/*Estilos generales*/
     font-weight: bold;
     margin-bottom: 1.25em;
     text-align: center;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .modal-body {
@@ -392,13 +402,15 @@ body, html {/*Estilos generales*/
 }
 
 .lista-de-filtros select {
+    background-color: #7E6363;
+    color: #f5f5f5;
     padding: 0.5em;
     text-align: justify;
 }
 
 .modal-apli {
     outline: 0;
-    background-color: #000000;
+    background-color: #3E3232;
     width: 10%;
     color: white;
     border: none;
@@ -412,13 +424,13 @@ body, html {/*Estilos generales*/
     margin-top: 1em;
 }
 .modal-apli:hover {
-    background-color: #363638;
+    background-color: #7E6363;
 }
 
 .modal-reset {
     margin-left: 10px;
     outline: 0;
-    background-color: #000000;
+    background-color: #3E3232;
     width: 10%;
     color: white;
     border: none;
@@ -433,7 +445,7 @@ body, html {/*Estilos generales*/
 }
 
 .modal-reset:hover {
-    background-color: #363638;
+    background-color: #7E6363;
 }
 
 /* Media Query para pantallas pequeñas */
