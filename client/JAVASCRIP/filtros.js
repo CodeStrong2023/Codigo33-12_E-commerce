@@ -3,7 +3,7 @@ const modalOverlay = document.getElementById("modal-overlay");
 const modalContainer = document.getElementById("modal-container");
 const aplica = [];
 
-const displayCart = () => {
+const displayFiltro = () => {
     // Resetear el contenido del modal y mostrarlo
     modalContainer.innerHTML = "";
     modalContainer.style.display = "block";
@@ -140,4 +140,4 @@ const displayCart = () => {
 };
 
 // Añadir el event listener al botón que abre el modal
-filtro.addEventListener("click", displayCart);
+filtro.addEventListener("click", displayFiltro);
