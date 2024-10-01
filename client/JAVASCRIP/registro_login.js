@@ -11,10 +11,10 @@ function mostrarRegistro() {
         <h2>Registrarse</h2>
         <form id="registerForm">
             <div class="input-group">
-                <input type="text" id="username" name="username" placeholder=" 👤 USUARIO" autocomplete="username" required>
+                <input type="text" id="username" name="username" placeholder=" 👤 USUARIO" required>
             </div>
             <div class="input-group">
-                <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" autocomplete="email" required>
+                <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" required>
             </div>
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" autocomplete="new-password" required>
@@ -50,7 +50,7 @@ function mostrarLogin() {
                 <input type="text" id="username" name="username" placeholder=" 👤 USUARIO" required>
             </div>
             <div class="input-group">
-                <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" autocomplete="current-password" required>
+                <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA"  required>
             </div>
             <p>Olvidaste tu contraseña? <a href="#">Restaurar contraseña.</a></p>
             <button type="submit" class="boton">INGRESAR</button>
