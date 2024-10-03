@@ -1,6 +1,6 @@
 /*Estilos generales*/
 body, html {
-    background-color: #3b3b3b;
+    background-color: #503C3C;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -10,7 +10,7 @@ body, html {
 
 /*Estilos para lo que hace de navegador*/
 .nav {
-    background-color: #2a2a2d;
+    background-color: #3E3232;
     padding: 10px;
     position: fixed;
     top: 0;
@@ -46,7 +46,7 @@ body, html {
 /*Estilos para la sección de login*/
 .login {
     background-color: #3b3b3b;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/client/Imagenes/Fondos/Fondoparalogincompu.jpg');
+    background-image: linear-gradient(rgba(62, 50, 50, 0.5), rgba(62, 50, 50, 0.5)), url('/client/Imagenes/Fondos/Fondoparalogincompu.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -60,7 +60,7 @@ body, html {
 }
 
 .login .container-login {
-    background-color: rgba(42, 42, 45, 0.5); /* Color oscuro con opacidad */
+    background-color: rgba(62, 50, 50, 0.5); /* Color oscuro con opacidad */
     padding: 30px;
     width: 100%;
     max-width: 400px; /* Limita el ancho máximo en pantallas grandes */

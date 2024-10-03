@@ -17,10 +17,10 @@ function mostrarRegistro() {
                 <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" required>
             </div>
             <div class="input-group">
-                <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" autocomplete="new-password" required>
+                <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" required>
             </div>
             <div class="input-group">
-                <input type="password" id="confirm_password" name="confirm_password" placeholder=" 🔒 CONFIRMAR CONTRASEÑA" autocomplete="new-password" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder=" 🔒 CONFIRMAR CONTRASEÑA" required>
             </div>
             <button type="submit" class="boton">REGISTRARSE</button>
         </form>
