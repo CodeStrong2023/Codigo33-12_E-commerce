@@ -5,7 +5,10 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: Arial, sans-serif;
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
 
 /*Estilos para lo que hace de navegador*/

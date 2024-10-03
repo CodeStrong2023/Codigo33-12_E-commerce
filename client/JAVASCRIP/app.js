@@ -13,19 +13,28 @@ productos.forEach((producto) => {
     shopContent.append(content);
 
     const buyButton = document.createElement("button");
-    buyButton.innerText = "Comprar";
+    buyButton.innerText = "COMPRAR";
     buyButton.classList.add("buy-button"); // Agregar clase
 
     content.append(buyButton);
 
-    buyButton.addEventListener("click", () => {
-        cart.push({
-            id: producto.id,
-            productName: producto.productName,
-            price: producto.price,
-            quanty: producto.quanty,
-            imagen: producto.imagen
-        });
-        console.log(cart);
-    });
+    //Para agregar mas uno del mismo producto y no se duplique
+    buyButton.addEventListener("click", ()=>{
+        const repeat = cart.some((repeatProduct) => repeatProduct.id === producto.id); //Si encuentra es un true y sino es false
+        if(repeat){
+            cart.map((prod) => {
+                if(prod.id === producto.id){
+                    prod.quanty++;
+                }
+            });
+        }else{
+            cart.push({
+                id:producto.id,
+                productName:producto.productName,
+                price:producto.price,
+                quanty:producto.quanty,
+                imagen:producto.imagen
+            })
+        }  
+    })
 });
