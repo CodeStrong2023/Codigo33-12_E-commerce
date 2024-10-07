@@ -2,18 +2,20 @@
 const usuarios = [
     {
         'username': 'gianellaAchetoni',
+        'email':'gianellaachetoni@gmail.com',
         'contraseña': '123456'
     },
     {
         'username': 'ezequielFlores',
+        'email': 'ezequiel@gmail.com', 
         'contraseña': '123456'
     },
     {
         'username': 'jessiPagano',
+        'email': 'jessi@gmail.com', 
         'contraseña': '123456'
     }
 ];
-
 // Elementos del DOM
 const containerLogin = document.getElementById('container-login');
 
@@ -28,11 +30,16 @@ function mostrarRegistro() {
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" required>
             </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" required>
+            <div class="input-group password-container">
+                <div class="password">
+                    <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" required>
+                </div>
+                <div class="password">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder=" 🔒 CONFIRMAR" required>
+                </div>
             </div>
             <div class="input-group">
-                <input type="password" id="confirm_password" name="confirm_password" placeholder=" 🔒 CONFIRMAR CONTRASEÑA" required>
+                <input type="text" id="years" name="years" placeholder=" EDAD" required>
             </div>
             <button type="submit" class="boton">REGISTRARSE</button>
         </form>
@@ -50,6 +57,36 @@ function mostrarRegistro() {
     });
 }
 
+// Función para restaurar contraseña
+function mostrarRestaurador() {
+    containerLogin.innerHTML = `
+        <h2>Restaurar Contraseña</h2>
+        <form id="restaurarform"> <!-- Corregido from a form -->
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" required>
+            </div>
+            <button type="submit" class="boton">RESTAURAR</button>
+        </form>
+        <p>Recordaste la contraseña? <a href="#" id="iniciarSesionLink">Iniciar Sesión</a></p>
+        <p>No tienes cuenta? <a href="#" id="registrarseLink">Resgistrarse</a></p>
+    `;
+
+    document.getElementById('restaurarform').addEventListener('submit', function(e) {
+        e.preventDefault();
+        consultaEmail();
+    });
+
+    document.getElementById('iniciarSesionLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        mostrarLogin();
+    });
+
+    document.getElementById('registrarseLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        mostrarRegistro();
+    });
+}
+
 // Función para mostrar el formulario de login
 function mostrarLogin() {
     containerLogin.innerHTML = `
@@ -61,16 +98,21 @@ function mostrarLogin() {
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA"  required>
             </div>
-            <p>Olvidaste tu contraseña? <a href="#">Restaurar contraseña.</a></p>
+            <p>Olvidaste tu contraseña? <a href="#" id="restaurarContraseña">Restaurar contraseña.</a></p>
             <button type="submit" class="boton">INGRESAR</button>
         </form>
-        <p>No tienes cuenta? <a href="#" id="registrarseLink">REGISTRARSE</a></p>
+        <p>No tienes cuenta? <a href="#" id="registrarseLink">Registrarse</a></p>
     `;
 
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault();
         consultaUsuario();
     });
+
+    document.getElementById('restaurarContraseña').addEventListener('click', function(e){
+        e.preventDefault();
+        mostrarRestaurador();
+    })
 
     document.getElementById('registrarseLink').addEventListener('click', function(e) {
         e.preventDefault();
@@ -83,22 +125,53 @@ function registrarUsuario() {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const edad = document.getElementById('years').value;
     const confirmPassword = document.getElementById('confirm_password').value;
 
+    //Funcion para verificar que la contraseña sea la misma que el de confirmar contraseña
     if (password !== confirmPassword) {
         alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
         return;
     }
+    //Funcion para verificar que sea mayor de edad
+    if (edad < '18') {
+        alert('Lo siento, debes ser mayor de edad')
+        return;
+    }
 
+    //Funcion para verificar que el email no corresponda a ningun usuario existente
+    const emailEncontrado = usuarios.find(usuario => usuario.email === email);
+    if (emailEncontrado) {
+        alert("Este email pertenece a una cuenta existente");
+        return;
+    }
+
+    //Ingresar el nuevoUsuario 
     const nuevoUsuario = {
         username: username,
         email: email,
-        contraseña: password
+        contraseña: password,
+        edad: edad
     };
 
     usuarios.push(nuevoUsuario);
 
     alert("Registro exitoso!");
+    mostrarLogin();
+}
+
+// Función para verificar si el correo existe y enviar email con contraseña
+function consultaEmail() {
+    const email = document.getElementById('email').value;
+
+    const emailEncontrado = usuarios.find(usuario => usuario.email === email);
+
+    if (!emailEncontrado) {
+        alert('Email no encontrado, revise el email o regístrese');
+        return;
+    } 
+
+    alert('Email encontrado');
     mostrarLogin();
 }
 
