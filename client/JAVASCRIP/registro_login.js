@@ -164,15 +164,27 @@ function registrarUsuario() {
 function consultaEmail() {
     const email = document.getElementById('email').value;
 
-    const emailEncontrado = usuarios.find(usuario => usuario.email === email);
-
-    if (!emailEncontrado) {
-        alert('Email no encontrado, revise el email o regístrese');
-        return;
-    } 
-
-    alert('Email encontrado');
-    mostrarLogin();
+    // Realizar la solicitud al servidor Node.js
+    fetch('http://localhost:5500/enviar-contraseña', {  // Aquí está la URL correcta
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email })  // Enviar el email en el cuerpo de la solicitud
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Correo enviado exitosamente') {
+            alert('Se ha enviado tu contraseña a tu correo.');
+            mostrarLogin();
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al enviar el correo');
+    });
 }
 
 // Función para consultar si el usuario existe y verificar la contraseña
