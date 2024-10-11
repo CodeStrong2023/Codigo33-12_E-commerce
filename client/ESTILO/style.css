@@ -6,7 +6,10 @@ body, html {/*Estilos generales*/
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: Arial, sans-serif;
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }/*Fin estilos generales*/
 
 /*Estilos para lo que hace de navegador*/
@@ -94,51 +97,160 @@ body, html {/*Estilos generales*/
     text-align: center;
 }
 
-
-/*Style de los productos creados desde Js*/
-.card-products-container{
+/* Style de los productos creados desde Js */
+.card-products-container {
     margin: 5vh auto;
-    .card-products{
-        text-align: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        padding: 5px;
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            background-color: #fff;
-            img {
-                width: 27vh; /* Establece el ancho del contenedor */
-                height: 20vh; /* Establece la altura del contenedor */
-                overflow: hidden; /* Oculta cualquier contenido desbordado (imagen recortada) */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                object-fit: contain;
-            }
-            .buy-button {
-                outline: 0;
-                background-color: #000000;
-                width: 90%;
-                color: white;
-                border: none;
-                padding: 10px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        }
+}
+
+.card-products {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centra los productos */
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.product {
+    border: 2px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: transform 0.6s ease, box-shadow 0.3s ease; /* Tiempo de transición más largo para el giro */
+    perspective: 1000px; /* Agrega perspectiva para la rotación en 3D */
+    max-width: 300px; /* Limita el ancho máximo de cada producto */
+    flex-grow: 1; /* Permite que los productos se mantengan del mismo tamaño */
+}
+
+.product:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product img {
+    width: 27vh;
+    height: 20vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    transition: transform 0.6s ease; /* Sincronizado con la rotación del contenedor */
+    transform-style: preserve-3d; /* Asegura que las transformaciones en 3D se mantengan */
+}
+
+/* Ajuste para el giro deseado */
+.product:hover img {
+    animation: spinDiagonalLeft 0.6s forwards; /* Llama a la animación */
+}
+
+@keyframes spinDiagonalLeft {
+    0% {
+        transform: rotate(0deg); /* Comienza en posición normal */
     }
-}/*Fin de estilos para los productos traidos desde JS*/
+    50% {
+        transform: rotate(-15deg); /* Gira hacia -25 grados (izquierda) */
+    }
+    100% {
+        transform: rotate(-10deg); /* Termina en posición normal */
+    }
+}
+
+.buy-button {
+    outline: 0;
+    background-color: #000000;
+    width: 90%;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #3E3232;
+    font-size: 23px;
+}
+
+.buy-button:active {
+    background-color: #3E3232;
+}
+
+/* Media queries para pantallas más pequeñas */
+/* En pantallas de hasta 1024px (tabletas), mostrar 2 productos por fila */
+@media screen and (max-width: 1024px) {
+    .product-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .product img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-products {
+        justify-content: space-around; /* Espaciado alrededor de los productos */
+    }
+    .product {
+        max-width: 39%; /* 2 productos por fila, ocupando 45% del ancho */
+        flex: 1 1 45%; /* Hacer que los productos sean flexibles */
+        margin: 10px; /* Espaciado uniforme */
+        padding: 5px;
+        aspect-ratio: 1.5; /* Mantener un aspecto rectangular */
+    }
+}
+
+/* En pantallas de hasta 768px (pequeñas tabletas y computadoras portátiles), ajustar el diseño */
+@media screen and (max-width: 768px) {
+    .product-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .product {
+        max-width: 40%; /* Asegura que se mantengan 2 productos por fila */
+        flex: 1 1 48%; /* Flexibilidad en el diseño */
+        margin: 10px; /* Espaciado uniforme */
+        aspect-ratio: 1.5; /* Mantener un aspecto rectangular */
+    }
+    .product img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* En pantallas de hasta 600px (móviles), mostrar 1 producto por fila */
+@media screen and (max-width: 600px) {
+    .product-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .product {
+        max-width: 70%; /* 1 producto por fila, ocupando el 90% del ancho */
+        margin: 10px 0; /* Espaciado vertical entre productos */
+        aspect-ratio: 1.5; /* Mantener un aspecto rectangular */
+    }
+    .product img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
 
 @keyframes slideIn {
     to {
@@ -229,7 +341,8 @@ body, html {/*Estilos generales*/
     background-color: #3E3232;
     color: white;
     padding: 5px;
-    size: 3px;
+    font-family: sans-serif;
+    font-size: 12px;
     text-align: center;
 }/*Fin de estilos para el footer*/
 
@@ -241,8 +354,10 @@ body, html {/*Estilos generales*/
     border: none;
     transition: all 0.5s ease-in-out;
     font-size: 14px; /* Tamaño de fuente reducido */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 600;
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
     display: flex;
     align-items: center;
     background: #2a2a2d;
