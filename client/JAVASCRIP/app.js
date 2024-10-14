@@ -22,9 +22,10 @@ function renderProducts(productos) {
         content.classList.add("product");
 
         content.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <img src="${producto.url_imagen}" alt="${producto.nombre}">
             <h3>${producto.nombre}</h3>
-            <p>${producto.precio}</p>
+            <p>Talle: ${producto.talle}</p>
+            <p>$${producto.precio}</p>
         `;
         shopContent.append(content);
 
@@ -47,8 +48,9 @@ function renderProducts(productos) {
                     id: producto.id,
                     nombre: producto.nombre,
                     precio: producto.precio,
+                    talle: producto.talle,
                     quanty: 1,
-                    imagen: producto.imagen // Asegúrate de que `imagen` está en tu respuesta de la API.
+                    imagen: producto.url_imagen // Asegúrate de que `imagen` está en tu respuesta de la API.
                 });
             }
             console.log(cart);
