@@ -44,36 +44,34 @@ const displayFiltro = () => {
                 </li>
                 <li class="lista-de-filtros">MARCAS
                     <select id="marcas" name="marcas">
+                        <option value="">Todas</option>
                         <option value="Adidas">Adidas</option>
                         <option value="Nike">Nike</option>
-                        <option value="New Balance">New Balance</option>
-                        <option value="Todos">Todos</option>
+                        <option value="Puma">Puma</option>
                     </select>
                 </li>
                 <li class="lista-de-filtros">TALLE
                     <select id="talle" name="talle">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="Todos">Todos</option>
+                        <option value="">Todos</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
                     </select>
                 </li>
                 <li class="lista-de-filtros">COLORES
                     <select id="colores" name="colores">
+                        <option value="">Todos</option>
                         <option value="Azul">Azul</option>
                         <option value="Rojo">Rojo</option>
                         <option value="Negro">Negro</option>
                         <option value="Blanco">Blanco</option>
                         <option value="Verde">Verde</option>
-                        <option value="Todos">Todos</option>
-                    </select>
-                </li>
-                <li class="lista-de-filtros">GÉNERO
-                    <select id="genero" name="genero">
-                        <option value="Femenino">Femenino</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Unisex">Unisex</option>
-                        <option value="Todos">Todos</option>
+                        <option value="Gris">Gris</option>
                     </select>
                 </li>
             </ul>
@@ -96,13 +94,11 @@ const displayFiltro = () => {
         const marca = document.getElementById('marcas').value;
         const talle = document.getElementById('talle').value;
         const colores = document.getElementById('colores').value;
-        const genero = document.getElementById('genero').value;
         const ordenar = document.getElementById('ordenar').value;
         aplica.push({
             marca: marca,
             talle: talle,
             colores: colores,
-            genero: genero,
             ordenar: ordenar
         });
 
@@ -115,16 +111,14 @@ const displayFiltro = () => {
 
     // Al hacer clic en reiniciar, restablece todos los filtros a los valores por defecto
     modalReset.addEventListener("click", () => {
-        const marca = document.getElementById('marcas').value = "Todos";
-        const talle = document.getElementById('talle').value = "Todos";
-        const colores = document.getElementById('colores').value = "Todos";
-        const genero = document.getElementById('genero').value = "Todos";
+        const marca = document.getElementById('marcas').value = "";
+        const talle = document.getElementById('talle').value = "";
+        const colores = document.getElementById('colores').value = "";
         const ordenar = document.getElementById('ordenar').value = "novedades";
         aplica.push({
             marca: marca,
             talle: talle,
             colores: colores,
-            genero: genero,
             ordenar: ordenar
         });
 
