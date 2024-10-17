@@ -37,14 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="product">
                     <img class="product" src="${product.imagen}"/>
                     <div class="product-info">
-                        <h4>${product.productName}</h4>
+                        <h4>${product.nombre}</h4>
                     </div>
                     <div class="quantity">
                         <span class="quantity-btn-decrese">-</span>
                         <span class="quantity-input">${product.quanty}</span>
                         <span class="quantity-btn-increse">+</span>
                     </div>
-                    <div class="price">${product.price * product.quanty}</div>
+                    <div class="price">${product.precio * product.quanty}</div>
                     <div class="delete-product">❌</div>
                 </div>
             `;
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Footer del modal
-        const total = cart.reduce((acc, el) => acc + (el.price * el.quanty), 0);
+        const total = cart.reduce((acc, el) => acc + (el.precio * el.quanty), 0);
 
         const modalFooter = document.createElement('div');
         modalFooter.className = "modal-footer";
