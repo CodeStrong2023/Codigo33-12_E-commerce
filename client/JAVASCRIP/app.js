@@ -50,7 +50,7 @@ function renderProducts(productos) {
                     precio: producto.precio,
                     talle: producto.talle,
                     quanty: 1,
-                    imagen: producto.url_imagen // Asegúrate de que `imagen` está en tu respuesta de la API.
+                    imagen: producto.url_imagen 
                 });
             }
             console.log(cart);
