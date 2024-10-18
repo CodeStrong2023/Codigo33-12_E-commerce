@@ -84,7 +84,8 @@ const displayFiltro = () => {
     modalContainer.append(modalBody);
 
 
-   
+    //Esto tiene que ver directo con el back, NO TOCAR
+    //NO TOCAR
     // Botón para reiniciar filtros y restaurar los productos iniciales
     document.querySelector(".modal-reset").addEventListener("click", async () => {
         document.getElementById('filtroForm').reset(); // Restablece los valores por defecto
@@ -109,8 +110,8 @@ const displayFiltro = () => {
         }
     });
 
-    //Esto tiene que ver con el back NO
-
+    //Esto tiene que ver con el back NO TOCAR
+    //NO TOCAR
     // Añadir el event listener al formulario para enviar los filtros
     document.getElementById('filtroForm').addEventListener('submit', async function(e) {
         e.preventDefault();
