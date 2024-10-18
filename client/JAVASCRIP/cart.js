@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img class="product" src="${product.imagen}"/>
                     <div class="product-info">
                         <h4>${product.nombre}</h4>
+                        <p>Talle: ${product.talle}</p>
                     </div>
                     <div class="quantity">
                         <span class="quantity-btn-decrese">-</span>
