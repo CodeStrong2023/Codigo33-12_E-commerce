@@ -139,7 +139,12 @@ const displayFiltro = () => {
             shopContent.innerHTML = ''; 
             
             // Renderizar los productos usando la función renderProducts
-            renderProducts(productos);
+            if (productos.length > 0) {
+                renderProducts(productos); // Usa tu función renderProducts para mostrar los productos
+            } else {
+                // Si no se encuentran productos, mostrar un mensaje
+                shopContent.innerHTML = '<p>No se encontraron productos.</p>';
+            }
 
             // Cerrar el modal
             modalContainer.style.display = "none";
