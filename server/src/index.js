@@ -9,8 +9,41 @@ app.use(express.json());
 
 app.get('/api/zapatillas', async (req, res) => {
     try {
-        const zapatillas = await Zapatilla.findAll();
+        // Obtener los parámetros de consulta (query parameters)
+        const { color, talle, marca, ordenarPor } = req.query;
+
+        // Crear el objeto "where" para los filtros
+        let whereClause = {};
+
+        // Agregar los filtros si están presentes en los parámetros de consulta
+        if (color) {
+            whereClause.color = color;
+        }
+        if (talle) {
+            whereClause.talle = talle;
+        }
+        if (marca) {
+            whereClause.marca = marca;
+        }
+
+        // Crear el objeto "order" para la ordenación
+        let orderClause = [];
+        if (ordenarPor === 'menorMayor') {
+            orderClause = [['precio', 'ASC']];
+        } else if (ordenarPor === 'mayorMenor') {
+            orderClause = [['precio', 'DESC']];
+        } else if (ordenarPor === 'novedades') {
+            orderClause = [['createdAt', 'DESC']]; // Suponiendo que tienes un campo createdAt para novedades
+        }
+
+        // Consultar la base de datos con los filtros y ordenación
+        const zapatillas = await Zapatilla.findAll({
+            where: whereClause,
+            order: orderClause
+        });
+
         res.json(zapatillas);
+        
     } catch (error) {
         console.error("Error al obtener los productos:", error);
         res.status(500).json({ message: "Error al obtener los productos" });
