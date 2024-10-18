@@ -1,6 +1,7 @@
 const shopContent = document.getElementById("shopContent");
 const cart = [];
 
+//NO TOCAR
 // Función para obtener los productos
 async function fetchProducts() {
     try {

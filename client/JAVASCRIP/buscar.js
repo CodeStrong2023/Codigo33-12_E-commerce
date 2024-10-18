@@ -1,4 +1,5 @@
-// buscar.js
+// NO TOCAR NADA
+//ACA NOHAY FRON PARA MANIPULAR ES TODO PARA LA CONSULTA CON EL BACK
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
@@ -8,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchTerm = searchInput.value.trim();
 
         if (!searchTerm) {
-            // Si no hay término de búsqueda, puedes mostrar un mensaje o simplemente no hacer nada
             return;
         }
 
@@ -31,17 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Renderizar los resultados
-            zapatillas.forEach(zapatilla => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('product-card'); // Asegúrate de tener estilos para esta clase
-                productCard.innerHTML = `
-                    <h2>${zapatilla.nombre}</h2>
-                    <p>Color: ${zapatilla.color}</p>
-                    <p>Talle: ${zapatilla.talle}</p>
-                    <p>Precio: $${zapatilla.precio}</p>
-                `;
-                shopContent.appendChild(productCard);
-            });
+            renderProducts(zapatillas); 
+
         } catch (error) {
             console.error('Error al buscar zapatillas:', error);
             shopContent.innerHTML = '<p>Error al buscar los productos. Inténtalo de nuevo más tarde.</p>';
