@@ -93,7 +93,9 @@ function renderProducts(productos) {
             if (repeat) {
                 cart.map((prod) => {
                     if (prod.id === productoSeleccionado.id) {
-                        prod.quanty++;
+                        if (prod.quanty < prod.stock) {
+                            prod.quanty++;
+                        }
                     }
                 });
             } else {
@@ -102,6 +104,7 @@ function renderProducts(productos) {
                     nombre: productoSeleccionado.nombre,
                     precio: productoSeleccionado.precio,
                     talle: productoSeleccionado.talle,
+                    stock: productoSeleccionado.stock,
                     quanty: 1,
                     imagen: productoSeleccionado.url_imagen 
                 });
