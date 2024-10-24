@@ -1,21 +1,24 @@
 /*Estilos generales*/
 body, html {
-    background-color: #3b3b3b;
+    background-color: #503C3C;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: Arial, sans-serif;
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
 
 /*Estilos para lo que hace de navegador*/
 .nav {
-    background-color: #2a2a2d;
+    background-color: #3E3232;
     padding: 10px;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+    z-index: 1000;
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;
@@ -28,7 +31,7 @@ body, html {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 
 .nav li {
@@ -41,12 +44,10 @@ body, html {
     padding: 10px 20px;
 }
 
-/*Fin de estilos para el nav*/
-
 /*Estilos para la sección de login*/
 .login {
     background-color: #3b3b3b;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/client/Imagenes/Fondos/Fondoparalogincompu.jpg');
+    background-image: linear-gradient(rgba(62, 50, 50, 0.5), rgba(62, 50, 50, 0.5)), url('/client/Imagenes/Fondos/Fondoparalogincompu.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -60,10 +61,10 @@ body, html {
 }
 
 .login .container-login {
-    background-color: rgba(42, 42, 45, 0.5); /* Color oscuro con opacidad */
+    background-color: rgba(62, 50, 50, 0.5);
     padding: 30px;
     width: 100%;
-    max-width: 400px; /* Limita el ancho máximo en pantallas grandes */
+    max-width: 400px;
 }
 
 .login h2 {
@@ -73,23 +74,21 @@ body, html {
     font-style: normal;
 }
 
-.login .input-group {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-.login a{
+.login a {
     color: #ff5613;
     text-decoration: none;
 }
+
 .login input {
     height: 30px;
+    text-align: center;
     border-radius: 30px;
     background-color: rgba(255, 253, 253, 0.5);
     border: solid 2px rgba(255, 253, 253, 0.5);
-    padding-left: 10px; /* Añade espacio dentro del input */
+    width: 100%; /* Asegura que ocupen todo el ancho */
 }
-.login .boton{
+
+.login .boton {
     color: black;
     height: 35px;
     background-color: rgba(255, 253, 253, 0.6);
@@ -104,6 +103,32 @@ body, html {
     margin-left: 20px;
     text-align: justify;
 }
+.input-group{
+    padding: 15px;
+}
+
+/* Estilos para alinear contraseña y confirmar contraseña */
+.input-group.password-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente los inputs */
+    gap: 25px;
+}
+
+.input-group.password-container .password {
+    flex: 1;
+}
+
+.input-group.password-container input {
+    width: 94%;
+    height: 30px;
+    border-radius: 30px;
+    background-color: rgba(255, 253, 253, 0.5);
+    border: solid 2px rgba(255, 253, 253, 0.5);
+    padding-left: 10px;
+}
+
+
 
 /* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
