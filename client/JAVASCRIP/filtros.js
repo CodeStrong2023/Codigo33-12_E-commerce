@@ -1,10 +1,10 @@
 const filtro = document.getElementById("filters");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalContainer = document.getElementById("modal-container");
+
 const aplica = [];
 
 const displayFiltro = () => {
-    // Resetear el contenido del modal y mostrarlo
     modalContainer.innerHTML = "";
     modalContainer.style.display = "block";
     modalOverlay.style.display = "block";
@@ -33,111 +33,129 @@ const displayFiltro = () => {
     const modalBody = document.createElement('div');
     modalBody.className = "modal-body";
     modalBody.innerHTML = `
-        <div>
+        <form id="filtroForm">
             <ul>
                 <li class="lista-de-filtros">ORDENAR
-                    <select id="ordenar" name="ordenar">
+                    <select id="ordenarPor" name="ordenar">
                         <option value="menorMayor">Precio (Menor a Mayor)</option>
                         <option value="mayorMenor">Precio (Mayor a Menor)</option>
                         <option value="novedades">Novedades</option>
                     </select>
                 </li>
                 <li class="lista-de-filtros">MARCAS
-                    <select id="marcas" name="marcas">
+                    <select id="marca" name="marcas">
+                        <option value="">Todas</option>
                         <option value="Adidas">Adidas</option>
                         <option value="Nike">Nike</option>
-                        <option value="New Balance">New Balance</option>
-                        <option value="Todos">Todos</option>
+                        <option value="Puma">Puma</option>
                     </select>
                 </li>
                 <li class="lista-de-filtros">TALLE
                     <select id="talle" name="talle">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="Todos">Todos</option>
+                        <option value="">Todos</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
                     </select>
                 </li>
                 <li class="lista-de-filtros">COLORES
-                    <select id="colores" name="colores">
+                    <select id="color" name="colores">
+                        <option value="">Todos</option>
                         <option value="Azul">Azul</option>
                         <option value="Rojo">Rojo</option>
                         <option value="Negro">Negro</option>
                         <option value="Blanco">Blanco</option>
                         <option value="Verde">Verde</option>
-                        <option value="Todos">Todos</option>
-                    </select>
-                </li>
-                <li class="lista-de-filtros">GÉNERO
-                    <select id="genero" name="genero">
-                        <option value="Femenino">Femenino</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Unisex">Unisex</option>
-                        <option value="Todos">Todos</option>
+                        <option value="Gris">Gris</option>
                     </select>
                 </li>
             </ul>
-        </div>
+            <div class="modal-buttons">
+                <button type="submit" class="modal-apli">Aplicar</button>
+                <button type="button" class="modal-reset">Reiniciar</button>
+            </div>
+        </form>
     `;
     modalContainer.append(modalBody);
 
-    // Crear el botón para aplicar los filtros seleccionados
-    const modalApli = document.createElement('div');
-    modalApli.innerHTML = "Aplicar";
-    modalApli.className = "modal-apli";
 
-    // Crear el botón para reiniciar los valores
-    const modalReset = document.createElement('div');
-    modalReset.innerHTML = "Reiniciar";
-    modalReset.className = "modal-reset";
+    //Esto tiene que ver directo con el back, NO TOCAR
+    //NO TOCAR
+    // Botón para reiniciar filtros y restaurar los productos iniciales
+    document.querySelector(".modal-reset").addEventListener("click", async () => {
+        document.getElementById('filtroForm').reset(); // Restablece los valores por defecto
 
-    // Al hacer clic en aplicar, toma los valores seleccionados de los filtros
-    modalApli.addEventListener("click", () => {
-        const marca = document.getElementById('marcas').value;
+        // Hacer una nueva solicitud para obtener todos los productos sin filtros
+        try {
+            const response = await fetch('http://localhost:4000/api/zapatillas');
+            if (!response.ok) {
+                throw new Error("Error al obtener los productos");
+            }
+            const productos = await response.json();
+
+            // Limpiar el contenido previo y renderizar todos los productos
+            shopContent.innerHTML = '';
+            renderProducts(productos);
+
+            // Cerrar el modal
+            modalContainer.style.display = "none";
+            modalOverlay.style.display = "none";
+        } catch (error) {
+            console.error("Error al obtener los productos:", error);
+        }
+    });
+
+    //Esto tiene que ver con el back NO TOCAR
+    //NO TOCAR
+    // Añadir el event listener al formulario para enviar los filtros
+    document.getElementById('filtroForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Obtener los valores de los filtros
+        const color = document.getElementById('color').value;
         const talle = document.getElementById('talle').value;
-        const colores = document.getElementById('colores').value;
-        const genero = document.getElementById('genero').value;
-        const ordenar = document.getElementById('ordenar').value;
-        aplica.push({
-            marca: marca,
-            talle: talle,
-            colores: colores,
-            genero: genero,
-            ordenar: ordenar
-        });
+        const marca = document.getElementById('marca').value;
+        const ordenarPor = document.getElementById('ordenarPor').value;
 
-        console.log(aplica);
+        // Crear la URL con los filtros
+        let url = 'http://localhost:4000/api/zapatillas?';
+        if (color) url += `color=${color}&`;
+        if (talle) url += `talle=${talle}&`;
+        if (marca) url += `marca=${marca}&`;
+        if (ordenarPor) url += `ordenarPor=${ordenarPor}`;
 
-        // Cerrar el modal
-        modalContainer.style.display = "none";
-        modalOverlay.style.display = "none";
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Error al obtener los productos");
+            }
+            const productos = await response.json();
+
+            // Limpiar el contenido previo antes de renderizar los productos filtrados
+            shopContent.innerHTML = ''; 
+            
+            // Renderizar los productos usando la función renderProducts
+            if (productos.length > 0) {
+                renderProducts(productos); // Usa tu función renderProducts para mostrar los productos
+            } else {
+                // Si no se encuentran productos, mostrar un mensaje
+                shopContent.innerHTML = '<p>No se encontraron productos.</p>';
+            }
+
+            // Cerrar el modal
+            modalContainer.style.display = "none";
+            modalOverlay.style.display = "none";
+        } catch (error) {
+            console.error("Error al obtener los productos:", error);
+        }
     });
-
-    // Al hacer clic en reiniciar, restablece todos los filtros a los valores por defecto
-    modalReset.addEventListener("click", () => {
-        const marca = document.getElementById('marcas').value = "Todos";
-        const talle = document.getElementById('talle').value = "Todos";
-        const colores = document.getElementById('colores').value = "Todos";
-        const genero = document.getElementById('genero').value = "Todos";
-        const ordenar = document.getElementById('ordenar').value = "novedades";
-        aplica.push({
-            marca: marca,
-            talle: talle,
-            colores: colores,
-            genero: genero,
-            ordenar: ordenar
-        });
-
-        console.log(aplica);
-        // Cerrar el modal
-        modalContainer.style.display = "none";
-        modalOverlay.style.display = "none";
-    });
-
-    // Añadir ambos botones al modal
-    modalContainer.append(modalApli);
-    modalContainer.append(modalReset);
 };
 
 // Añadir el event listener al botón que abre el modal
 filtro.addEventListener("click", displayFiltro);
+
