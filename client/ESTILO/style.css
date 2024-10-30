@@ -14,7 +14,7 @@ body, html {/*Estilos generales*/
 
 /*Estilos para lo que hace de navegador*/
 .nav {
-    background-color: #1aba7d;
+    background-color: #2c2a2a;
     padding: 10px;
     position: fixed;
     top: 0;
@@ -126,7 +126,7 @@ body, html {/*Estilos generales*/
 }
 
 .product:hover {
-    transform: scale(1.1);
+    transform: translateY(-5px);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -185,6 +185,32 @@ body, html {/*Estilos generales*/
 .buy-button:active {
     background-color: #3E3232;
 }
+
+.talles-container {
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 10px 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.talle-button {
+    background-color: #000000;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.talle-button:hover {
+    background-color: rgb(192, 88, 105);
+}
+
 
 /* Media queries para pantallas más pequeñas */
 /* En pantallas de hasta 1024px (tabletas), mostrar 2 productos por fila */
