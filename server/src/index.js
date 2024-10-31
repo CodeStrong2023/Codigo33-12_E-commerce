@@ -67,8 +67,21 @@ app.get('/api/user/:username', async (req, res) => {
     }
 });
 
-// Ruta para verificar si el email tiene cuenta
-app.post('/api/user/check-email', async (req, res) => {
+const nodemailer = require('nodemailer');
+
+// Configuración de Nodemailer
+const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true para puerto 465, false para otros puertos
+    auth: {
+        user: 'codigofrsr@gmail.com', 
+        pass: 'sdlz gkzh bvrw ixyi', 
+    },
+});
+
+// Ruta para restablecer la contraseña
+app.post('/api/user/reset-password', async (req, res) => {
     const { useremail } = req.body;
 
     try {
@@ -78,10 +91,21 @@ app.post('/api/user/check-email', async (req, res) => {
             return res.status(404).json({ message: 'No se encontró una cuenta asociada a este correo electrónico.' });
         }
 
-        res.status(200).json({ message: 'El correo electrónico existe.' });
+        // Aquí puedes definir el contenido del correo
+        const mailOptions = {
+            from: 'codigofrsr@gmail.com',
+            to: useremail,
+            subject: 'Restablecimiento de Contraseña',
+            text: `Hola, aquí tienes tus credenciales:\n\nUsuario: ${user.username}\nContraseña: ${user.userpassword}`
+        };
+
+        // Envía el correo
+        await transporter.sendMail(mailOptions);
+        
+        res.status(200).json({ message: 'Se ha enviado un correo con tus credenciales.' });
     } catch (error) {
-        console.error("Error al verificar el email:", error);
-        res.status(500).json({ message: 'Error al verificar el correo electrónico.' });
+        console.error("Error al enviar el correo:", error);
+        res.status(500).json({ message: 'Error al restablecer la contraseña.' });
     }
 });
 

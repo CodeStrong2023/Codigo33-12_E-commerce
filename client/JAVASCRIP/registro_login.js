@@ -55,7 +55,7 @@ function mostrarRestaurador() {
 
     document.getElementById('restaurarform').addEventListener('submit', function(e) {
         e.preventDefault();
-        verificarEmail();
+        restablecerContrasena();
     });
 
     document.getElementById('iniciarSesionLink').addEventListener('click', function(e) {
@@ -195,8 +195,8 @@ async function consultaUsuario() {
     }
 }
 
-// Función para verificar si el email tiene cuenta
-async function verificarEmail() {
+// Función para restablecer la contraseña
+async function restablecerContrasena() {
     const email = document.getElementById('email').value; // Asegúrate de que este ID sea correcto
 
     const respuesta = {
@@ -204,7 +204,7 @@ async function verificarEmail() {
     };
 
     try {
-        const response = await fetch('http://localhost:4000/api/user/check-email', {
+        const response = await fetch('http://localhost:4000/api/user/reset-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -215,15 +215,16 @@ async function verificarEmail() {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.message || 'Error al verificar el email');
+            throw new Error(data.message || 'Error al restablecer la contraseña');
         }
 
-        alert(data.message); // Muestra un mensaje si el email existe
+        alert(data.message); // Muestra un mensaje de éxito
     } catch (error) {
-        console.error("Error al verificar el email:", error);
+        console.error("Error al restablecer la contraseña:", error);
         alert("Ocurrió un error: " + error.message);
     }
 }
+
 
 
 
