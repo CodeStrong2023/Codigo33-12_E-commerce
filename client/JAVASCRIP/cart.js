@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 createCheckoutButton(preference.id);
             } catch (error) {
                 console.error("Error al crear la preferencia:", error);
-                alert("error");
+                alert("ERROR, Debes comprar al menos un producto");
             }
         });
     };
