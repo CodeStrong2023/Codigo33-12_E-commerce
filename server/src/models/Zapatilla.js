@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('../database.js');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database.js';
 
 const Zapatilla = sequelize.define('zapatilla', {
   nombre: {
@@ -18,18 +18,19 @@ const Zapatilla = sequelize.define('zapatilla', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
-  url_imagen:{
+  url_imagen: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  stock:{
+  stock: {
     type: DataTypes.INTEGER,
-    allowNull: null,
+    allowNull: true, // Corrigido: debe ser `true` en lugar de `null`
   },
-  talle:{
+  talle: {
     type: DataTypes.INTEGER,
-    allowNull: null,
+    allowNull: true, // Corrigido: debe ser `true` en lugar de `null`
   },
 });
 
-module.exports = Zapatilla;
+export default Zapatilla;
+
