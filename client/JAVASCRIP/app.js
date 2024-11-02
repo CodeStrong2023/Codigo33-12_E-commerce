@@ -67,7 +67,7 @@ function renderProducts(productos) {
         });
 
         const buyButton = document.createElement("button");
-        buyButton.innerText = "COMPRAR";
+        buyButton.innerText = "AGREGAR AL CARRITO";
         buyButton.classList.add("buy-button");
 
         content.append(buyButton);
