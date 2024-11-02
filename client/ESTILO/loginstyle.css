@@ -24,6 +24,11 @@ body, html {
     font-style: normal;
 }
 
+.nav ul li a:hover {
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
+}
+
 .nav ul {
     display: flex;
     justify-content: center;
