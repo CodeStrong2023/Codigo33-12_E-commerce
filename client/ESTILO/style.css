@@ -59,6 +59,37 @@ body, html {/*Estilos generales*/
 nav.nav {
     background-color: #000000;
 }
+
+.scroll-horizontal {
+    overflow: hidden;
+    white-space: nowrap;
+    background: linear-gradient(180deg, rgba(2,36,0,1) 0%, rgba(168,93,168,1) 48%, rgba(0,212,255,1) 100%);
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    letter-spacing: 50px;
+  }
+  
+  .scroll-text {
+    display: inline-block;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 48px;
+    color: #fff;
+    animation: scroll-infinite 30s linear infinite;
+  }
+  
+  /* Animación para el scroll horizontal */
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
 .cart-btn {
     color: #0095ff; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
@@ -75,7 +106,7 @@ nav.nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 40vh;
     width: 100%;
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
@@ -130,7 +161,10 @@ nav.nav {
     flex-wrap: wrap;
     padding: 5px;
 }
-
+div.product {
+    background: rgb(2,36,0);
+    background: linear-gradient(180deg, rgba(2,36,0,1) 0%, rgba(168,93,168,1) 48%, rgba(0,212,255,1) 100%);
+}
 .product {
     border: 2px;
     padding: 10px;
