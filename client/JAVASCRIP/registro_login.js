@@ -125,13 +125,6 @@ async function registrarUsuario() {
         return;
     }
 
-    // Validación de la contraseña
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordPattern.test(password)) {
-        alert('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula y un número.');
-        return;
-    }
-
     const nuevoUsuario = {
         username: username,
         userpassword: password, // Cambia 'password' a 'userpassword'
