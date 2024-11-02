@@ -1,7 +1,7 @@
 body, html {/*Estilos generales*/
     width: 100%;
     height: 100%;
-    background-color: linear-gradient(135deg, #43CBFF, #9708CC);
+    background-color: black;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -14,10 +14,11 @@ body, html {/*Estilos generales*/
 
 /*Estilos para lo que hace de navegador*/
 .nav {
-    background-color: #2c2a2a;
+    background: #020202;
+    border-radius: 10px;
     padding: 10px;
     position: fixed;
-    top: 0;
+    top: 0%;
     width: 100%;
     z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
     font-family: "Permanent Marker", cursive;
@@ -44,6 +45,54 @@ body, html {/*Estilos generales*/
     }
 }/*Fin de estilos para el nav*/
 
+.nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF; /* Color de texto inicial */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Añade una transición suave */
+}
+
+.nav ul li a:hover {
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
+}
+
+nav.nav {
+    background-color: #000000;
+}
+
+.scroll-horizontal {
+    overflow: hidden;
+    white-space: nowrap;
+    background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 50px;
+  }
+  
+  .scroll-text {
+    display: inline-block;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 48px;
+    color: #fff;
+    animation: scroll-infinite 30s linear infinite;
+  }
+  
+  /* Animación para el scroll horizontal */
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+.cart-btn {
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
+}
+
 /* Estilos para pantalla central */
 .fullscreen-content {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
@@ -55,7 +104,7 @@ body, html {/*Estilos generales*/
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 40vh;
     width: 100%;
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
@@ -110,7 +159,11 @@ body, html {/*Estilos generales*/
     flex-wrap: wrap;
     padding: 5px;
 }
-
+div.product {
+    background: rgba(39, 38, 38, 1);
+    border: solid 3px rgba(88, 0, 255, 1);
+    border-radius: 8px; /* Asegura que el pseudo-elemento te*/
+}
 .product {
     border: 2px;
     padding: 10px;
@@ -118,15 +171,26 @@ body, html {/*Estilos generales*/
     border-radius: 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    background-color: rgba(186, 29, 29, 0.2);
+    background-color: rgba(11, 9, 9, 0.2);
     transition: transform 0.6s ease, box-shadow 0.3s ease; /* Tiempo de transición más largo para el giro */
     perspective: 1000px; /* Agrega perspectiva para la rotación en 3D */
     max-width: 300px; /* Limita el ancho máximo de cada producto */
     flex-grow: 1; /* Permite que los productos se mantengan del mismo tamaño */
 }
+.product::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 5px; /* Mismo radio de borde que el elemento principal */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
 
 .product:hover {
     transform: translateY(-5px);
+    background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -178,12 +242,13 @@ body, html {/*Estilos generales*/
 }
 
 .buy-button:hover {
-    background-color: #3E3232;
-    font-size: 23px;
+    background-color: #292020;
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
 }
 
 .buy-button:active {
-    background-color: #3E3232;
+    background-color: #544b4b;
 }
 
 .talles-container {
@@ -208,7 +273,11 @@ body, html {/*Estilos generales*/
 }
 
 .talle-button:hover {
-    background-color: rgb(192, 88, 105);
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+}
+
+.talle-button:active{
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
 }
 
 
@@ -309,34 +378,42 @@ body, html {/*Estilos generales*/
 }
 
 .input {
+    border: solid 2px rgba(88, 0, 255, 1);
     max-width: 190px;
     height: 57%; /* Asegura que el input y el botón tengan la misma altura */
     outline: none;
     font-size: 14px;
     font-weight: 500;
-    background-color: #2a2a2d;
-    caret-color: #f7f7f8;
+    background-color: #000000;
+    caret-color: #f7f7f8; 
     color: #fff;
     padding: 7px 10px;
     border: 2px solid transparent;
     border-radius: 7px 0 0 7px; /* Usa shorthand para simplificación */
     margin-right: 0; /* Elimina el margen derecho para alineación perfecta */
-    transition: background-color 0.2s ease, border-color 0.2s ease; /* Optimiza las transiciones */
+    border-color: rgba(88, 0, 255, 1);
+    transition: background-color 0.2s ease; /* Optimiza las transiciones */
+}
+
+.input::before{
+    border: solid 2px rgba(88, 0, 255, 1);
 }
 
 .input:hover {
-    border-color: #ccc; /* Simplificación */
+    color: rgba(233, 0, 255, 1); /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(88, 0, 255, 1) ;
+    border-color: rgba(88, 0, 255, 1); /* Simplificación */
 }
 
 .input:focus {
-    border-color: #7E6363;
-    background-color: #0e0e10;
+    border-color: rgba(88, 0, 255, 1);
+    background-color: #080808;
 }
 
 .search__btn {
-    border: none;
+    border: solid 2px rgba(88, 0, 255, 1);
     cursor: pointer;
-    background-color: #2a2a2d;
+    background-color: #000000;
     border-radius: 0 7px 7px 0; /* Usa shorthand para simplificación */
     height: 100%; /* Asegura que el botón tenga la misma altura que el input */
     width: 40px; /* Ajusta el ancho del botón */
@@ -348,7 +425,9 @@ body, html {/*Estilos generales*/
 }
 
 .search__btn:hover {
-    background-color: #363638;
+    background-color: #1d1d1d;
+    color: #0015ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
 }
 
 /* Responsividad móvil */
@@ -364,7 +443,7 @@ body, html {/*Estilos generales*/
 
 
 .footer {/*Estilos del footer*/
-    background-color: #3E3232;
+    background-color: #000000;
     color: white;
     padding: 5px;
     font-family: sans-serif;
@@ -377,7 +456,7 @@ body, html {/*Estilos generales*/
     width: 120px; /* Ancho reducido */
     height: 40px; /* Altura reducida */
     border-radius: 5px;
-    border: none;
+    border: solid 2px rgba(88, 0, 255, 1);
     transition: all 0.5s ease-in-out;
     font-size: 14px; /* Tamaño de fuente reducido */
     font-family: "Passion One", sans-serif;
@@ -386,13 +465,13 @@ body, html {/*Estilos generales*/
     font-size: 20px;
     display: flex;
     align-items: center;
-    background: #2a2a2d;
+    background: #000000;
     color: #f5f5f5;
     position: relative; /* Asegura que el icono se posicione relativo al botón */
 }
 
 .btn:hover {
-    box-shadow: 0 0 20px 0px white;
+    box-shadow: 0 0 20px 0px rgba(88, 0, 255, 1);
 }
 
 .btn .icon {
@@ -489,7 +568,7 @@ body, html {/*Estilos generales*/
 
 .modal-container {
     display: none;
-    background-color: #E0CCBE;
+    background-color: #d4cdc8;
     box-shadow: 0px 3px 6px #00000029;
     padding: 2em;
     position: fixed; /* Cambiado de absolute a fixed */
@@ -501,6 +580,7 @@ body, html {/*Estilos generales*/
     z-index: 2; /* Asegúrate de que esté por encima de la superposición */
     max-height: 80vh;
     overflow-y: auto;
+    border-radius: 8px;
 }
 
 .modal-container::-webkit-scrollbar {
@@ -524,14 +604,15 @@ body, html {/*Estilos generales*/
 }
 
 .modal-body {
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 10px;
 }
 
 .modal-body ul {
     margin: 0;
     padding: 0;
 }
+
 
 .lista-de-filtros {
     display: flex;
@@ -551,7 +632,7 @@ body, html {/*Estilos generales*/
 
 .modal-apli {
     outline: 0;
-    background-color: #3E3232;
+    background-color: #000000;
     width: 10%;
     color: white;
     border: none;
@@ -565,14 +646,15 @@ body, html {/*Estilos generales*/
     margin-top: 1em;
 }
 .modal-apli:hover {
-    background-color: #7E6363;
+    color: #0015ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5);
 }
 
 .modal-reset {
     margin-left: 10px;
     outline: 0;
-    background-color: #3E3232;
-    width: 10%;
+    background-color: #000000;
+    width: 11%;
     color: white;
     border: none;
     padding: 0.5em;
@@ -586,9 +668,13 @@ body, html {/*Estilos generales*/
 }
 
 .modal-reset:hover {
-    background-color: #7E6363;
+    color: #0015ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5);
 }
 
+div.modal-buttons {
+    text-align: center;
+}
 /* Media Query para pantallas pequeñas */
 @media (max-width: 600px) {
     .modal-container {
