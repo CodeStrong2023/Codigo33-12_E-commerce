@@ -1,7 +1,7 @@
 body, html {/*Estilos generales*/
     width: 100%;
     height: 100%;
-    background-color: linear-gradient(135deg, #43CBFF, #9708CC);
+    background-color: black;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -63,12 +63,10 @@ nav.nav {
 .scroll-horizontal {
     overflow: hidden;
     white-space: nowrap;
-    background: linear-gradient(180deg, rgba(2,36,0,1) 0%, rgba(168,93,168,1) 48%, rgba(0,212,255,1) 100%);
-    padding: 60px 0;
+    background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     letter-spacing: 50px;
   }
   
@@ -162,8 +160,9 @@ nav.nav {
     padding: 5px;
 }
 div.product {
-    background: rgb(2,36,0);
-    background: linear-gradient(180deg, rgba(2,36,0,1) 0%, rgba(168,93,168,1) 48%, rgba(0,212,255,1) 100%);
+    background: rgba(39, 38, 38, 1);
+    border: solid 3px rgba(88, 0, 255, 1);
+    border-radius: 8px; /* Asegura que el pseudo-elemento te*/
 }
 .product {
     border: 2px;
@@ -178,9 +177,20 @@ div.product {
     max-width: 300px; /* Limita el ancho máximo de cada producto */
     flex-grow: 1; /* Permite que los productos se mantengan del mismo tamaño */
 }
+.product::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 5px; /* Mismo radio de borde que el elemento principal */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
 
 .product:hover {
     transform: translateY(-5px);
+    background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -266,6 +276,9 @@ div.product {
     color: #0095ff; /* Cambia el color del texto al pasar el mouse */
 }
 
+.talle-button:active{
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+}
 
 
 /* Media queries para pantallas más pequeñas */
@@ -365,34 +378,40 @@ div.product {
 }
 
 .input {
+    border: solid 2px rgba(88, 0, 255, 1);
     max-width: 190px;
     height: 57%; /* Asegura que el input y el botón tengan la misma altura */
     outline: none;
     font-size: 14px;
     font-weight: 500;
     background-color: #000000;
-    caret-color: #f7f7f8;
+    caret-color: #f7f7f8; 
     color: #fff;
     padding: 7px 10px;
     border: 2px solid transparent;
     border-radius: 7px 0 0 7px; /* Usa shorthand para simplificación */
     margin-right: 0; /* Elimina el margen derecho para alineación perfecta */
-    transition: background-color 0.2s ease, border-color 0.2s ease; /* Optimiza las transiciones */
+    border-color: rgba(88, 0, 255, 1);
+    transition: background-color 0.2s ease; /* Optimiza las transiciones */
+}
+
+.input::before{
+    border: solid 2px rgba(88, 0, 255, 1);
 }
 
 .input:hover {
-    color: #0015ff; /* Cambia el color del texto al pasar el mouse */
-    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5);
-    border-color: #ccc; /* Simplificación */
+    color: rgba(233, 0, 255, 1); /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(88, 0, 255, 1) ;
+    border-color: rgba(88, 0, 255, 1); /* Simplificación */
 }
 
 .input:focus {
-    border-color: #7E6363;
-    background-color: #0e0e10;
+    border-color: rgba(88, 0, 255, 1);
+    background-color: #080808;
 }
 
 .search__btn {
-    border: none;
+    border: solid 2px rgba(88, 0, 255, 1);
     cursor: pointer;
     background-color: #000000;
     border-radius: 0 7px 7px 0; /* Usa shorthand para simplificación */
@@ -406,7 +425,7 @@ div.product {
 }
 
 .search__btn:hover {
-    background-color: #363638;
+    background-color: #1d1d1d;
     color: #0015ff; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
 }
@@ -437,7 +456,7 @@ div.product {
     width: 120px; /* Ancho reducido */
     height: 40px; /* Altura reducida */
     border-radius: 5px;
-    border: none;
+    border: solid 2px rgba(88, 0, 255, 1);
     transition: all 0.5s ease-in-out;
     font-size: 14px; /* Tamaño de fuente reducido */
     font-family: "Passion One", sans-serif;
@@ -446,13 +465,13 @@ div.product {
     font-size: 20px;
     display: flex;
     align-items: center;
-    background: #2a2a2d;
+    background: #000000;
     color: #f5f5f5;
     position: relative; /* Asegura que el icono se posicione relativo al botón */
 }
 
 .btn:hover {
-    box-shadow: 0 0 20px 0px white;
+    box-shadow: 0 0 20px 0px rgba(88, 0, 255, 1);
 }
 
 .btn .icon {
