@@ -1,21 +1,3 @@
-// Array de usuarios pre-registrados
-const usuarios = [
-    {
-        'username': 'gianellaAchetoni',
-        'email':'gianellaachetoni@gmail.com',
-        'contraseña': '123456'
-    },
-    {
-        'username': 'ezequielFlores',
-        'email': 'ezequiel@gmail.com', 
-        'contraseña': '123456'
-    },
-    {
-        'username': 'jessiPagano',
-        'email': 'jessi@gmail.com', 
-        'contraseña': '123456'
-    }
-];
 // Elementos del DOM
 const containerLogin = document.getElementById('container-login');
 
@@ -25,21 +7,21 @@ function mostrarRegistro() {
         <h2>Registrarse</h2>
         <form id="registerForm">
             <div class="input-group">
-                <input type="text" id="username" name="username" placeholder=" 👤 USUARIO" required>
+                <input type="text" id="username" name="username" autocomplete="username" placeholder=" 👤 USUARIO" required>
             </div>
             <div class="input-group">
-                <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" required>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder=" ✉️ EMAIL" required>
             </div>
             <div class="input-group password-container">
                 <div class="password">
-                    <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" required>
+                    <input type="password" id="password" name="password" autocomplete="new-password" placeholder=" 🔒 CONTRASEÑA" required>
                 </div>
                 <div class="password">
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder=" 🔒 CONFIRMAR" required>
+                    <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" placeholder=" 🔒 CONFIRMAR" required>
                 </div>
             </div>
             <div class="input-group">
-                <input type="text" id="years" name="years" placeholder=" EDAD" required>
+                <input type="text" id="years" name="years" autocomplete="age" placeholder=" EDAD" required>
             </div>
             <button type="submit" class="boton">REGISTRARSE</button>
         </form>
@@ -63,7 +45,7 @@ function mostrarRestaurador() {
         <h2>Restaurar Contraseña</h2>
         <form id="restaurarform"> <!-- Corregido from a form -->
             <div class="input-group">
-                <input type="email" id="email" name="email" placeholder=" ✉️ EMAIL" required>
+                <input type="email" id="email" name="email" autocomplete:"email" placeholder=" ✉️ EMAIL" required>
             </div>
             <button type="submit" class="boton">RESTAURAR</button>
         </form>
@@ -73,7 +55,7 @@ function mostrarRestaurador() {
 
     document.getElementById('restaurarform').addEventListener('submit', function(e) {
         e.preventDefault();
-        consultaEmail();
+        restablecerContrasena();
     });
 
     document.getElementById('iniciarSesionLink').addEventListener('click', function(e) {
@@ -121,79 +103,130 @@ function mostrarLogin() {
 }
 
 // Función para registrar un usuario
-function registrarUsuario() {
+async function registrarUsuario() {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const edad = document.getElementById('years').value;
+    const edad = document.getElementById('years').value; // Asegúrate de que este ID sea correcto
     const confirmPassword = document.getElementById('confirm_password').value;
 
-    //Funcion para verificar que la contraseña sea la misma que el de confirmar contraseña
     if (password !== confirmPassword) {
         alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
         return;
     }
-    //Funcion para verificar que sea mayor de edad
     if (edad < '18') {
-        alert('Lo siento, debes ser mayor de edad')
+        alert('Lo siento, debes ser mayor de edad');
+        return;
+    }
+    // Validación del correo electrónico
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Por favor, introduce un correo electrónico válido.');
         return;
     }
 
-    //Funcion para verificar que el email no corresponda a ningun usuario existente
-    const emailEncontrado = usuarios.find(usuario => usuario.email === email);
-    if (emailEncontrado) {
-        alert("Este email pertenece a una cuenta existente");
+    // Validación de la contraseña
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordPattern.test(password)) {
+        alert('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula y un número.');
         return;
     }
 
-    //Ingresar el nuevoUsuario 
     const nuevoUsuario = {
         username: username,
-        email: email,
-        contraseña: password,
-        edad: edad
+        userpassword: password, // Cambia 'password' a 'userpassword'
+        useremail: email, // Cambia 'email' a 'useremail'
+        edad: edad // Asegúrate de usar 'edad' aquí
     };
+    console.log(nuevoUsuario);
+    try {
+        const response = await fetch('http://localhost:4001/api/user', { // Asegúrate de que la URL sea correcta
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoUsuario)
+        });
 
-    usuarios.push(nuevoUsuario);
+        const data = await response.json();
 
-    alert("Registro exitoso!");
-    mostrarLogin();
+        if (!response.ok) {
+            throw new Error(data.message || 'Error al registrar usuario');
+        }
+
+        alert(data.message);
+        mostrarLogin();
+    } catch (error) {
+        console.error("Error al registrar usuario:", error);
+        alert("Ocurrió un error: " + error.message);
+    }
 }
 
-// Función para verificar si el correo existe y enviar email con contraseña
-function consultaEmail() {
-    const email = document.getElementById('email').value;
 
-    const emailEncontrado = usuarios.find(usuario => usuario.email === email);
-
-    if (!emailEncontrado) {
-        alert('Email no encontrado, revise el email o regístrese');
-        return;
-    } 
-
-    alert('Email encontrado');
-    mostrarLogin();
-}
 
 // Función para consultar si el usuario existe y verificar la contraseña
-function consultaUsuario() {
+async function consultaUsuario() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const usuarioEncontrado = usuarios.find(usuario => usuario.username === username);
+    try {
+        const response = await fetch(`http://localhost:4001/api/user/${username}`, { // Cambiado a GET y la ruta correcta
+            method: 'GET', // Cambiado a GET
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-    if (!usuarioEncontrado) {
-        alert("Usuario no encontrado. Por favor, verifica tu nombre de usuario.");
-        return;
+        const result = await response.json();
+
+        if (response.ok) {
+            if (result.userpassword === password) { // Verifica la contraseña
+                alert("Inicio de sesión exitoso"); // Mensaje de éxito
+                // Aquí puedes redirigir al usuario a otra página si es necesario
+            } else {
+                alert("Contraseña incorrecta");
+            }
+        } else {
+            alert(result.message); // Muestra el mensaje de error
+        }
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        alert('Ocurrió un error al iniciar sesión.');
     }
-
-    if (usuarioEncontrado.contraseña !== password) {
-        alert("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
-        return;
-    }
-
-    alert("Inicio de sesión exitoso.");
 }
+
+// Función para restablecer la contraseña
+async function restablecerContrasena() {
+    const email = document.getElementById('email').value; // Asegúrate de que este ID sea correcto
+
+    const respuesta = {
+        useremail: email
+    };
+
+    try {
+        const response = await fetch('http://localhost:4001/api/user/reset-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(respuesta)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error al restablecer la contraseña');
+        }
+
+        alert(data.message); // Muestra un mensaje de éxito
+    } catch (error) {
+        console.error("Error al restablecer la contraseña:", error);
+        alert("Ocurrió un error: " + error.message);
+    }
+}
+
+
+
 
 // Inicialización: mostrar el formulario de inicio de sesión por defecto
 document.addEventListener('DOMContentLoaded', function() {

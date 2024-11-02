@@ -1,12 +1,22 @@
 {
+  "type": "module",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"npm run server1\" \"npm run server2\"",
+    "server1": "node ./src/index.js",
+    "server2": "node ./src/mercadopago.js"
+  },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mercadopago": "^2.0.15",
     "mysql2": "^3.11.3",
+    "nodemailer": "^6.9.16",
     "sequelize": "^6.37.4"
   },
   "devDependencies": {
+    "concurrently": "^9.0.1",
     "nodemon": "^3.1.7"
   }
 }

@@ -26,12 +26,12 @@
     <div class="login" >
         <div class="container-login" id="container-login">
             <h2>Iniciar Sesión</h2>
-            <form action="login.php" method="post" id="loginForm">
+            <form id="loginForm">
                 <div class="input-group">
-                    <input type="text" id="username" name="username" placeholder=" 👤 USUARIO" required>
+                    <input type="text" id="username" name="username" autocomplete="username" placeholder=" 👤 USUARIO" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" name="password" placeholder=" 🔒 CONTRASEÑA" required>
+                    <input type="password" id="password" name="password" autocomplete="current-password" placeholder=" 🔒 CONTRASEÑA" required>
                 </div>
                 <p>Olvidaste tu contraseña? <a href="#">Restaurar contraseña.</a></p>
                 <button type="submit" class="boton">INGRESAR</button>
