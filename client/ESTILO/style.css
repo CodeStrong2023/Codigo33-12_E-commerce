@@ -93,6 +93,26 @@ nav.nav {
 .cart-btn {
     color: #0095ff; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* estilo para el contador */
+#cart-counter {
+    position: relative;
+    top: -20px; /* Cambia esto según donde quieras posicionarlo */
+    right: 5px; /* Cambia esto según donde quieras posicionarlo */
+    background-color: rgb(255, 255, 255); /* Color de fondo */
+    color: rgba(0, 0, 0); /* Color del texto */
+    border-radius: 50%; /* Mantiene la forma circular */
+    padding: 3px 6px; /* Ajusta el padding para mayor tamaño */
+    font-size: 0.55em; /* Tamaño de fuente más grande */
+    min-width: 1px; /* Aumenta el ancho mínimo */
+    text-align: center; /* Centra el texto */
+    font-weight: bold; /* Para que el texto sea más destacado */
+    z-index: 1001; /* Asegúrate de que esté por encima de otros elementos */
 }
 
 /* Estilos para pantalla central */
@@ -508,7 +528,7 @@ div.product {
 }
 /*Fin de estilos para el boton de filtros*/
 
-/* Esto es para el responsil */
+/* Esto es para el responsive */
 
 @media (max-width: 768px) {
     .nav ul li {
@@ -570,7 +590,7 @@ div.product {
 
 .modal-container {
     display: none;
-    background-color: #d4cdc8;
+    background: rgb(0, 0, 0);
     box-shadow: 0px 3px 6px #00000029;
     padding: 2em;
     position: fixed; /* Cambiado de absolute a fixed */
@@ -579,10 +599,11 @@ div.product {
     transform: translate(-50%, -50%);
     max-width: 90vw;
     width: 80%;
-    z-index: 2; /* Asegúrate de que esté por encima de la superposición */
+    z-index: 2; /* Asegurar de que esté por encima de la superposición */
     max-height: 80vh;
     overflow-y: auto;
     border-radius: 8px;
+    border: 2px ridge rgba(255, 252, 252, 0.3);
 }
 
 .modal-container::-webkit-scrollbar {
@@ -603,6 +624,7 @@ div.product {
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;
+    color: rgb(255, 255, 255)
 }
 
 .modal-body {
