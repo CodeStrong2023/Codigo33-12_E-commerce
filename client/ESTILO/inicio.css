@@ -55,8 +55,8 @@ padding: 0%;
 }
 .nav ul li a {
   text-decoration: none;
-  color: #FFFFFF; / Color de texto inicial /
-  transition: color 0.3s ease, box-shadow 0.3s ease; / Añade una transición suave /
+  color: #FFFFFF; /* Color de texto inicial */
+  transition: color 0.3s ease, box-shadow 0.3s ease; /*Añade una transición suave */
 }
 
 .nav ul li a:hover {
