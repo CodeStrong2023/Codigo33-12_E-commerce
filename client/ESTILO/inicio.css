@@ -1,0 +1,192 @@
+body, html {/*Estilos generales*/
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}/*Fin estilos generales*/
+
+/*Estilos para lo que hace de navegador*/
+.nav {
+    background: #020202;
+    position: fixed;
+    color: #FFFFFF;
+    top: 0%;
+    width: 100%;
+    z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+    img{
+      margin-left: 0;
+      display: flex;
+      justify-content: right;
+      align-items: end;
+      margin-right: 20%;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+
+        li {
+            margin: 10px;     
+
+            a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
+        }
+    }
+}
+
+.nav img{
+  width: 100px;
+  height: 80px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0%;
+}
+.nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF; /* Color de texto inicial */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Añade una transición suave */
+}
+
+.nav ul li a:hover {
+    color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
+}
+
+nav.nav {
+    background-color: #000000;
+}/*Fin de estilos para el nav*/
+
+/*Principios estilos para carrousel*/
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Ajusta el ancho del carrusel */
+  height: 100%;
+  margin: auto;
+  align-items: center;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel img {
+    width: 100%;
+    height: 50%;
+    align-items: center;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+/*Fin estilos para carrousel*/
+
+/*Estilos generales de letras*/
+p,h1,h2,li{
+    color: #FFFFFF;
+}
+
+h1,h2{
+    text-align: center;
+}
+/*Fin estilos generales*/
+
+/*Estilos para bloque quien somos*/
+.info{
+  margin: 20px;
+}
+.info .contenido{
+  display: flex;
+}
+.info img{
+  width: 300px;
+  padding-left: 9%;
+  padding-right: 16%;
+}
+.info p{
+  width: 50%;
+  text-align: justify;
+}
+/*Fin estilos quien somos*/
+
+/*Estilos para bloque especiales*/
+div.especiales{
+  margin: 20px;
+}
+.especiales ul{
+  list-style-type: none;
+  text-decoration: none;
+}
+.especiales li{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  width: 50%;
+  text-align: justify;
+}
+/*Fin estilos para bloque especiales*/
+
+/*Fin estilos para bloque servicios*/
+.servicios{
+  margin: 20px;
+}
+.servicios ul{
+  list-style-type:none ;
+}
+.servicios li{
+  padding: 5px;
+  padding-left: 70%;
+  text-decoration: none;
+  width: 50%;
+  text-align: justify;
+}
+/*Fin estilos para bloque servicios*/
+
+.footer {/*Estilos del footer*/
+    background-color: #000000;
+    color: white;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: center;
+}/*Fin de estilos para el footer*/

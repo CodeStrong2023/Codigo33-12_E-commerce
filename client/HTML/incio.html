@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ESTILO/inicio.css">
     <title>Document</title>
 </head>
 <body>
-    
-</body>
-</html>
+    <header>
+        <nav class="nav">
+            <ul>
+                <img src="https://cdn.discordapp.com/attachments/1173616918859620403/1302778179810889778/Default_Create_a_bold_eyecatching_sign_featuring_the_word_Retr_3_1d6e6ab8-5782-4a18-a9bf-c3cf4a55b8de_0.png?ex=67295a3a&is=672808ba&hm=3941d760c8645f9ead9d5cefaa17396bd3d9affa74d41409bfc728e094400f43&" alt="Logo">
+                <li><a href="/client/HTML/login.html">REGISTRARSE</a></li>
+                <li><a href="#">OFERTAS</a></li>
+                <li id="cart-btn"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg></a></li>
+            </ul>
+        </nav>
+    </header> 
+    <div class="carousel">
+        <div class="carousel-container">
+          <div class="carousel-item"><img src="https://i.pinimg.com/564x/29/9e/d3/299ed3c110b3e92bbe893ca4316e7027.jpg" alt="Imagen 1"></div>
+          <div class="carousel-item"><img src="https://i.pinimg.com/564x/8e/de/fb/8edefb2cfa793e50f53a01f19a86f4f3.jpg" alt="Imagen 2"></div>
+          <div class="carousel-item"><img src="https://i.pinimg.com/564x/a4/c0/87/a4c0871ce09629dfcc51679250f152f3.jpg" alt="Imagen 3"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
+    </div>
+    <br>
+    <div class="nosotros" id="nosotro">
+        <div class="info">
+            <h1>¿QUIEN SOMOS?</h1>
+            <div class="contenido">
+                <img src="https://cdn.discordapp.com/attachments/1173616918859620403/1302778179810889778/Default_Create_a_bold_eyecatching_sign_featuring_the_word_Retr_3_1d6e6ab8-5782-4a18-a9bf-c3cf4a55b8de_0.png?ex=67295a3a&is=672808ba&hm=3941d760c8645f9ead9d5cefaa17396bd3d9affa74d41409bfc728e094400f43&" alt="Logo">
+                <P>En Retro, somos apasionados por la moda y las historias que hay detrás de cada par de zapatillas. Nacimos con la misión de ofrecer a los amantes de lo vintage y los clásicos urbanos un espacio donde encontrar modelos icónicos que marcaron una era y siguen siendo un símbolo de estilo.
+                Nos enorgullece ser una tienda que valora la autenticidad, la calidad y el diseño atemporal. Sabemos que las zapatillas no son solo un accesorio, sino una forma de expresión, un viaje al pasado que lleva consigo la esencia de cada época.
+                Nuestro equipo está formado por entusiastas de la moda retro, dedicados a buscar y curar las mejores piezas para nuestra colección. Desde los clásicos de los 80s hasta los modelos más buscados de los 2000s, en Retro te garantizamos una experiencia única, donde cada detalle ha sido pensado para revivir la nostalgia y el encanto de los mejores años de la moda urbana.
+                Retro no es solo una tienda; es una comunidad. Aquí celebramos lo clásico y lo auténtico, y queremos que te unas a nosotros en este viaje, caminando hacia el futuro con estilo y esencia retro.</P>
+            </div>
+           
+        </div>
+    </div>
+    <div class="especiales">
+        <h2>¿Qué nos hace especiales?</h2>
+        <ul>
+            <li>Colecciones Únicas: Ofrecemos modelos icónicos desde los 80s hasta los 2000s, incluyendo leyendas como las primeras Air Jordans y las clásicas Nike Cortez.</li>
+            <li>Ediciones Limitadas: Descubre lanzamientos especiales y colaboraciones únicas que no encontrarás en tiendas tradicionales.</li>
+            <li>Calidad Asegurada: Seleccionamos cada par con cuidado para garantizarte durabilidad y estilo.</li>
+            <li>Estilo con Historia: Cada zapatilla cuenta una historia, y en Retro te ayudamos a revivir esos momentos con un toque moderno.</li>
+        </ul>
+    </div>
+    <div class="servicios">
+        <h2>Servicios Destacados</h2>
+        <ul>
+            <li>Envíos Rápidos</li>
+            <li>Confiabilidad</li>
+            <li>Medio de pago</li>
+        </ul>
+    </div>
+    <script src="../JAVASCRIP/carrousel.js"></script>
+    <footer class="footer">
+        <p>&copy; 2024 CODIGO 33-12. Todos los derechos reservados.</p>
+    </footer>
