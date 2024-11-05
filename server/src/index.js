@@ -8,10 +8,14 @@ import zapatillasRoutes from './routes/zapatillas.js';
 import { sequelize } from './database.js';
 import User from './models/User.js';
 import nodemailer from 'nodemailer';
+import contactosRouter from './routes/contacto.js'; // Importa la ruta de contactos
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Usa las rutas
+app.use('/api/contactos', contactosRouter); // Define la ruta base para contactos
 
 // Ruta para obtener la lista de usuarios
 app.get('/api/user', async (req, res) => {
