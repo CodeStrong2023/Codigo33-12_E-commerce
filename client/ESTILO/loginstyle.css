@@ -54,6 +54,22 @@ div.container-login {
     border-color: none;
     border-radius: 8px;
 }
+
+#cart-counter {
+    position: relative;
+    top: -20px; /* Cambia esto según donde quieras posicionarlo */
+    right: 5px; /* Cambia esto según donde quieras posicionarlo */
+    background-color: white; /* Color de fondo */
+    color: rgba(0, 0, 0); /* Color del texto */
+    border-radius: 50%; /* Mantiene la forma circular */
+    padding: 3px 6px; /* Ajusta el padding para mayor tamaño */
+    font-size: 0.55em; /* Tamaño de fuente más grande */
+    min-width: 1px; /* Aumenta el ancho mínimo */
+    text-align: center; /* Centra el texto */
+    font-weight: bold; /* Para que el texto sea más destacado */
+    z-index: 1001; /* Asegúrate de que esté por encima de otros elementos */
+}
+
 /*Estilos para la sección de login*/
 .login {
     background-color: #000000;
