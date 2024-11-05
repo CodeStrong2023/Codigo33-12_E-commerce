@@ -102,8 +102,8 @@ nav.nav {
 /* estilo para el contador */
 #cart-counter {
     position: relative;
-    top: -20px; /* Cambia esto según donde quieras posicionarlo */
-    right: 5px; /* Cambia esto según donde quieras posicionarlo */
+    top: -20px; 
+    right: 5px; 
     background-color: white; /* Color de fondo */
     color: rgba(0, 0, 0); /* Color del texto */
     border-radius: 50%; /* Mantiene la forma circular */
@@ -112,11 +112,11 @@ nav.nav {
     min-width: 1px; /* Aumenta el ancho mínimo */
     text-align: center; /* Centra el texto */
     font-weight: bold; /* Para que el texto sea más destacado */
-    z-index: 1001; /* Asegúrate de que esté por encima de otros elementos */
+    z-index: 1001; 
 }
 
 #cart-counter:hover {
-    color: white; /* Cambia a un color rojo al pasar el cursor */
+    color: white; 
     transition: color 0.3s ease; /* Añade una transición suave */
     background-color: black;
 }
