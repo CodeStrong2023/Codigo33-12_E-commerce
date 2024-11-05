@@ -1,6 +1,15 @@
 // Elementos del DOM
 const containerLogin = document.getElementById('container-login');
 
+//Contador de Productos
+let cartCount = 0; //Inicializa en 0
+
+const updateCartCounter = () => {
+    cartCount = cart.reduce((acc,product) => acc + product.quanty, 0);
+    console.log("Número de productos en el carrito:", cartCount); // Para depuración
+    cartCounter.innerText = cartCount; //Actualiza HTML para contador 
+} 
+
 // Función para mostrar el formulario de registro
 function mostrarRegistro() {
     containerLogin.innerHTML = `
@@ -156,7 +165,6 @@ async function registrarUsuario() {
 }
 
 
-
 // Función para consultar si el usuario existe y verificar la contraseña
 async function consultaUsuario() {
     const username = document.getElementById('username').value;
@@ -225,4 +233,5 @@ async function restablecerContrasena() {
 document.addEventListener('DOMContentLoaded', function() {
     mostrarLogin();
 });
-
+//Inicializa contador
+updateCartCounter(); //Inicializa contador al cargar la pagina

@@ -2,11 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalOverlay = document.getElementById("modal-overlay");
     const modalContainer = document.getElementById("modal-container");
     const cartBtn = document.getElementById("cart-btn");
+    const cartCounter = document.getElementById("cart-counter"); // Para el contador de productos 
 
     //MercadoPago 
     const mp = new MercadoPago('APP_USR-ee55e85a-ec0e-4818-8bcc-c6cc28e5459e', {
         locale: 'es-AR' 
     });
+
+    //Contador de Productos
+    let cartCount = 0; //Inicializa en 0
+
+    const updateCartCounter = () => {
+        cartCount = cart.reduce((acc,product) => acc + product.quanty, 0);
+        cartCounter.innerText = cartCount; //Actualiza HTML para contador 
+    } 
+
 
     const displayCart = () => {
         // Inicializa el modal
@@ -63,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (product.quanty !== 1) {
                     product.quanty--;
                     displayCart();
+                    updateCartCounter(); //Actualiza despues de modificar cantidad
                 }
             });
 
@@ -71,12 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (product.quanty < product.stock) {
                     product.quanty++;
                     displayCart();
+                    updateCartCounter(); //Actualiza despues de modificar cantidad
                 }
             });
 
             const deleteProduct = modalBody.querySelector(".delete-product");
             deleteProduct.addEventListener("click", () => {
                 deleteCartProduct(product.id);
+                updateCartCounter(); //Actualiza despues de eliminar
             });
         });
 
@@ -142,10 +155,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const foundId = cart.findIndex((elemento) => elemento.id === id);
         cart.splice(foundId, 1);
         displayCart();
+        updateCartCounter(); // Actualiza contador despues de eliminar
     };
 
      // Asignar el evento click al botón del carrito
-     cartBtn.addEventListener("click", displayCart);
+    cartBtn.addEventListener("click", displayCart);
+    
+    updateCartCounter(); //Inicializa contador al cargar la pagina
+
 });
 
 
