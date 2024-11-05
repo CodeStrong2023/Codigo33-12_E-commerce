@@ -18,7 +18,11 @@
     <header>
         <nav class="nav">
             <ul>
-                <li><a href="/client/HTML/login.html">REGISTRARSE</a></li>
+                <li ><a href="/client/HTML/login.html" id="register-link">REGISTRARSE</a></li>
+                <!-- Enlace de Cerrar sesión (visible solo cuando está logueado) -->
+                <li id="logout-link" style="display: none;">
+                    <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+                </li>
                 <li><a href="/client/HTML/incio.html">INICIO</a></li>
                 <li><a href="/client/HTML/contacten.html">CONTACTEN</a></li>
                 <li id="cart-btn">
@@ -80,5 +84,6 @@
     <script src="/client/JAVASCRIP/filtros.js"></script>
     <script src="/client/JAVASCRIP/buscar.js"></script>
     <script src="/client/JAVASCRIP/cart.js"></script>
+    <script src="/client/JAVASCRIP/localStore.js"></script>
 </body>
 </html>
