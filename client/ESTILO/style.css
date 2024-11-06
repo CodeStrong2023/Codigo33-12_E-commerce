@@ -120,8 +120,7 @@ nav.nav {
 }
 /* Estilos para pantalla central */
 .fullscreen-content {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-    url('https://i.pinimg.com/originals/db/6e/2f/db6e2f1f0479a0766de569273be9ba1e.jpg');
+    background-image:url('https://i.pinimg.com/originals/db/6e/2f/db6e2f1f0479a0766de569273be9ba1e.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
