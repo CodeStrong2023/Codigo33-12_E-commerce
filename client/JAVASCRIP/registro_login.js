@@ -1,6 +1,15 @@
 // Elementos del DOM
 const containerLogin = document.getElementById('container-login');
 
+//Contador de Productos
+let cartCount = 0; //Inicializa en 0
+
+const updateCartCounter = () => {
+    cartCount = cart.reduce((acc,product) => acc + product.quanty, 0);
+    console.log("Número de productos en el carrito:", cartCount); // Para depuración
+    cartCounter.innerText = cartCount; //Actualiza HTML para contador 
+} 
+
 // Función para mostrar el formulario de registro
 function mostrarRegistro() {
     containerLogin.innerHTML = `
@@ -45,7 +54,7 @@ function mostrarRestaurador() {
         <h2>Restaurar Contraseña</h2>
         <form id="restaurarform"> <!-- Corregido from a form -->
             <div class="input-group">
-                <input type="email" id="email" name="email" autocomplete:"email" placeholder=" ✉️ EMAIL" required>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder=" ✉️ EMAIL" required>
             </div>
             <button type="submit" class="boton">RESTAURAR</button>
         </form>
@@ -125,13 +134,6 @@ async function registrarUsuario() {
         return;
     }
 
-    // Validación de la contraseña
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordPattern.test(password)) {
-        alert('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula y un número.');
-        return;
-    }
-
     const nuevoUsuario = {
         username: username,
         userpassword: password, // Cambia 'password' a 'userpassword'
@@ -163,7 +165,6 @@ async function registrarUsuario() {
 }
 
 
-
 // Función para consultar si el usuario existe y verificar la contraseña
 async function consultaUsuario() {
     const username = document.getElementById('username').value;
@@ -182,6 +183,12 @@ async function consultaUsuario() {
         if (response.ok) {
             if (result.userpassword === password) { // Verifica la contraseña
                 alert("Inicio de sesión exitoso"); // Mensaje de éxito
+
+                // Guarda el estado de inicio de sesión en localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                location.reload();
+                // Redirige al usuario a /client/HTML/index.html
+                window.location.href = '/client/HTML/index.html';
                 // Aquí puedes redirigir al usuario a otra página si es necesario
             } else {
                 alert("Contraseña incorrecta");
@@ -232,4 +239,5 @@ async function restablecerContrasena() {
 document.addEventListener('DOMContentLoaded', function() {
     mostrarLogin();
 });
-
+//Inicializa contador
+updateCartCounter(); //Inicializa contador al cargar la pagina

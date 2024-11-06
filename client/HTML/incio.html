@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../ESTILO/inicio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- header -->
+        <header>
+            <nav class="nav">
+                <ul>
+                    <li><a href="/client/HTML/login.html" id="register-link">REGISTRARSE</a></li>
+                    <li id="logout-link" style="display: none;">
+                        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+                    </li>
+                    <li><a href="/client/HTML/index.html">TIENDA</a></li>
+                    <li><a href="/client/HTML/contacten.html">CONTACTEN</a></li>
+                    <li id="cart-btn"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg></a></li>
+                </ul>
+            </nav>
+        </header>
+
+    <!-- slider -->
+
+    <div class="slider">
+        <!-- list Items -->
+        <div class="list">
+            <div class="item active">
+                <img src="../Imagenes/InicioImagenes/InicioJordan1.png">
+                <div class="content">
+                    <p>Retro</p>
+                    <h2>Sobre Nosotros</h2>
+                    <p>
+                        En Retro, nos apasiona la moda y las historias detrás de cada par de zapatillas. Nacimos para ofrecer a los amantes de lo vintage un lugar donde encontrar modelos icónicos que siguen marcando estilo. Valoramos la autenticidad, la calidad y el diseño atemporal, porque sabemos que las zapatillas son más que un accesorio: son una forma de expresión y un viaje al pasado lleno de esencia.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioNikeCortez.png">
+                <div class="content">
+                    <p>Retro</p>
+                    <h2>Colecciones</h2>
+                    <p>
+                        Modelos Únicos: Desde los 80s hasta los 2000s, incluyendo Air Jordans y Nike Cortez.
+                        Ediciones Exclusivas: Lanzamientos y colaboraciones que no encontrarás en otras tiendas.
+                        Calidad Garantizada: Cada par es elegido para ofrecer estilo y durabilidad.
+                        Estilo con Historia: Zapatillas que cuentan historias, con un toque moderno.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioPuma.png">
+                <div class="content">
+                    <p>Retro</p>
+                    <h2>Servicios</h2>
+                    <p>
+                        Envíos Rápidos | 
+                        Confiabilidad | 
+                        Medio de pago
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioAdidas.png">
+                <div class="content">
+                    <p>Retro</p>
+                    <h2>Contactemos</h2>
+                    <p>
+                        Estamos ansiosos por escucharte y conocer tus ideas o dudas. Escríbenos a nuestro correo o visita la sección "Contáctanos" para más opciones de comunicación. ¡Tu opinión es importante para nosotros!
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioAdidasGazelle.png">
+                <div class="content">
+                    <p>Retro</p>
+                    <h2>Eventos</h2>
+                    <p>
+                        Próximamente sumaremos nuevos pares y queremos que seas el primero en conocerlos. ¡Te esperamos en nuestro evento EXPORETRO, donde disfrutarás de adelantos exclusivos!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- button arrows -->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- thumbnail -->
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="../Imagenes/InicioImagenes/InicioJordan1.png">
+                <div class="content">
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioNikeCortez.png">
+                <div class="content">
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioPuma.png">
+                <div class="content">
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioAdidas.png">
+                <div class="content">
+                </div>
+            </div>
+            <div class="item">
+                <img src="../Imagenes/InicioImagenes/InicioAdidasGazelle.png">
+                <div class="content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 CODIGO 33-12. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="../JAVASCRIP/carrousel.js"></script>
+    <script src="/client/JAVASCRIP/localStore.js"></script>
+</body>
+</html>
+    

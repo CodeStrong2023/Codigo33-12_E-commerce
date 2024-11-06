@@ -92,7 +92,7 @@ const displayFiltro = () => {
 
         // Hacer una nueva solicitud para obtener todos los productos sin filtros
         try {
-            const response = await fetch('http://localhost:4000/api/zapatillas');
+            const response = await fetch('http://localhost:4001/api/zapatillas');
             if (!response.ok) {
                 throw new Error("Error al obtener los productos");
             }
@@ -123,7 +123,7 @@ const displayFiltro = () => {
         const ordenarPor = document.getElementById('ordenarPor').value;
 
         // Crear la URL con los filtros
-        let url = 'http://localhost:4000/api/zapatillas?';
+        let url = 'http://localhost:4001/api/zapatillas?';
         if (color) url += `color=${color}&`;
         if (talle) url += `talle=${talle}&`;
         if (marca) url += `marca=${marca}&`;

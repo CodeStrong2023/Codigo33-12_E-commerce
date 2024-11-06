@@ -1,6 +1,7 @@
-/*Estilos generales*/
-body, html {
-    background-color: #503C3C;
+body, html {/*Estilos generales*/
+    width: 100%;
+    height: 100%;
+    background-color: black;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -9,70 +10,54 @@ body, html {
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-}
+}/*Fin estilos generales*/
 
 /*Estilos para lo que hace de navegador*/
 .nav {
-    background-color: #000000;
+    background: #020202;
     padding: 10px;
     position: fixed;
-    top: 0;
+    top: 0%;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000; /* Asegura que el nav esté sobre otros elementos */
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+
+        li {
+            margin: 10px;     
+
+            a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
+        }
+    }
+}/*Fin de estilos para el nav*/
+
+.nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF; /* Color de texto inicial */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Añade una transición suave */
 }
 
 .nav ul li a:hover {
-    background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%); /* Cambia el color del texto al pasar el mouse */
+    background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%);
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
     border-radius: 8px;
 }
 
-.nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
-}
-
-.nav li {
-    margin: 10px;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-}
-
-div.container-login {
-    border-color: none;
-    border-radius: 8px;
-}
-
-#cart-counter {
-    position: relative;
-    top: -20px; 
-    right: 5px; 
-    background-color: white; /* Color de fondo */
-    color: rgba(0, 0, 0); /* Color del texto */
-    border-radius: 50%; /* Mantiene la forma circular */
-    padding: 3px 6px; /* Ajusta el padding para mayor tamaño */
-    font-size: 0.55em; /* Tamaño de fuente más grande */
-    min-width: 1px; /* Aumenta el ancho mínimo */
-    text-align: center; /* Centra el texto */
-    font-weight: bold; 
-    z-index: 1001; 
-}
-#cart-counter:hover {
-    color: white; 
-    transition: color 0.3s ease; /* Añade una transición suave */
-    background-color: black;
+nav.nav {
+    background-color: #000000;
 }
 
 /*Estilos para la sección de login*/
@@ -89,6 +74,14 @@ div.container-login {
     align-items: center;
     height: 100vh;
     width: 100%;
+}
+.input-group-container {
+    display: flex;
+    gap: 15px; /* Espacio entre los campos */
+}
+
+.input-group {
+    flex: 1; /* Asegura que ambos campos tengan el mismo ancho */
 }
 
 .login .container-login {
@@ -201,6 +194,15 @@ div.container-login {
         height: 40px; /* Aumenta el tamaño de los inputs en pantallas táctiles */
     }
 }
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
 
 /* Cambiar imagen de fondo si es una pantalla más pequeña */
 @media (max-width: 576px) {
@@ -209,4 +211,3 @@ div.container-login {
         background-size: cover;
     }
 }
-
