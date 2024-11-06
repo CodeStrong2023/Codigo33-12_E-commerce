@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:4000/api/zapatillas?search=${encodeURIComponent(searchTerm)}`);
+            const response = await fetch(`http://localhost:4001/api/zapatillas?search=${encodeURIComponent(searchTerm)}`);
             
             if (!response.ok) {
                 throw new Error('Error en la respuesta de la API');
