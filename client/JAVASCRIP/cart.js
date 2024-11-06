@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Crear el header del modal
         const modalHeader = document.createElement('div');
         const modalClose = document.createElement('div');
-        modalClose.innerText = "❌";
+        modalClose.innerText = "X";
         modalClose.className = "modal-close";
         modalContainer.append(modalHeader);
 
@@ -49,19 +49,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const modalBody = document.createElement('div');
             modalBody.className = "modal-body";
             modalBody.innerHTML = `
-                <div class="product">
-                    <img class="product" src="${product.imagen}"/>
-                    <div class="product-info">
+                <div class="producto">
+                    <img class="producto" src="${product.imagen}"/>
+                    <div class="producto-info">
                         <h4>${product.nombre}</h4>
                         <p>Talle: ${product.talle}</p>
                     </div>
-                    <div class="quantity">
+                    <div class="producto-quantity">
                         <span class="quantity-btn-decrese">-</span>
                         <span class="quantity-input">${product.quanty}</span>
                         <span class="quantity-btn-increse">+</span>
                     </div>
                     <div class="price">${product.precio * product.quanty}</div>
-                    <div class="delete-product">❌</div>
+                    <div class="delete-product">X</div>
                 </div>
             `;
 
