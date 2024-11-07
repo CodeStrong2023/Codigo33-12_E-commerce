@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalBody.className = "modal-body";
             modalBody.innerHTML = `
                 <div class="producto">
-                    <img class="producto" src="${product.imagen}"/>
+                    <img class="producto-img" src="${product.imagen}"/>
                     <div class="producto-info">
                         <h4>${product.nombre}</h4>
                         <p>Talle: ${product.talle}</p>
