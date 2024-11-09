@@ -768,7 +768,7 @@ div.product {
 .modal-apli {
     outline: 0;
     background-color: #000000;
-    width: 10%;
+    max-width: 150px;
     color: white;
     border: none;
     padding: 0.5em;
@@ -789,7 +789,7 @@ div.product {
     margin-left: 10px;
     outline: 0;
     background-color: #000000;
-    width: 11%;
+    max-width: 150px;
     color: white;
     border: none;
     padding: 0.5em;
@@ -809,24 +809,27 @@ div.product {
 
 div.modal-buttons {
     text-align: center;
-    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    gap: 2em; /* Espacio entre los botones */
+    font-size: 1.5vw;
+    flex-wrap: wrap; 
+    padding: 1em;
 }
 /* Media Query para pantallas pequeñas */
-@media (max-width: 600px) {
-    .modal-container {
-        padding: 1em;
-        max-width: 95vw;
+@media (max-width: 768px) {
+    .modal-apli, .modal-reset {
+        width: 45%;
+        font-size: 0.9em;
     }
+}
 
-    .modal-title {
-        font-size: 1.25em;
+@media (max-width: 480px) {
+    .modal-apli, .modal-reset {
+        width: 100%; 
+        font-size: 0.8em;
     }
-
-    .modal-apli {
-        width: 20%;
-    }
-
-    .modal-reset{
-        width: 25%;
+    div.modal-buttons {
+        gap: 0.5em; 
     }
 }
