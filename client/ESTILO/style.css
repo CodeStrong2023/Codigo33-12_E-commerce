@@ -60,34 +60,34 @@ nav.nav {
     background-color: #000000;
 }
 
-.scroll-horizontal {
+.slide-horizontal {
     overflow: hidden;
-    white-space: nowrap;
     background: radial-gradient(circle, rgba(88, 0, 255, 1) 0%, rgba(233, 0, 255, 1) 100%);
-    display: flex;
     justify-content: center;
-    align-items: center;
-    letter-spacing: 50px;
-  }
-  
-  .scroll-text {
-    display: inline-block;
-    font-family: 'Permanent Marker', sans-serif;
-    font-size: 48px;
-    color: #fff;
-    animation: scroll-infinite 30s linear infinite;
-  }
-  
-  /* Animación para el scroll horizontal */
-  @keyframes scroll-infinite {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+    align-items: center; 
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    white-space: nowrap;
   }
 
+.slide-logos {
+    display: inline-block;
+    animation: 4s slide infinite linear;
+}
+.slide-logos img {
+    height: 50px;
+    margin: 0 40px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
 .cart-btn {
     color: #0095ff; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5); /* Aplica un resplandor o sombra alrededor del texto */
@@ -186,7 +186,16 @@ nav.nav {
 div.product {
     background: rgba(39, 38, 38, 1);
     border: solid 3px rgba(88, 0, 255, 1);
-    border-radius: 8px; /* Asegura que el pseudo-elemento te*/
+    border-radius: 8px;
+    width: 300px; /* Ajusta al tamaño que desees */
+    height: 450px; /* Ajusta al tamaño que desees */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Espacio interno */
+    box-sizing: border-box;
 }
 .product {
     border: 2px;
@@ -200,6 +209,7 @@ div.product {
     perspective: 1000px; /* Agrega perspectiva para la rotación en 3D */
     max-width: 300px; /* Limita el ancho máximo de cada producto */
     flex-grow: 1; /* Permite que los productos se mantengan del mismo tamaño */
+    align-items: center;
 }
 .product::before {
     content: '';
@@ -219,16 +229,69 @@ div.product {
 }
 
 .product img {
-    width: 27vh;
-    height: 20vh;
+    /*width: 27vh;
+    height: 20vh;*/
+    width: 80%;
+    height: 80%; /* Ajusta la altura proporcionalmente */
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
-    object-fit: contain;
+    /*object-fit: contain;*/
+    max-height: 200px; /* Limita la altura máxima */
+    object-fit: contain; /* Asegura que la imagen se recorte para llenar el espacio */
     transition: transform 0.6s ease; /* Sincronizado con la rotación del contenedor */
     transform-style: preserve-3d; /* Asegura que las transformaciones en 3D se mantengan */
+    aspect-ratio: 1 / 1;
 }
+
+.product img[alt="Nike Cortez"] {
+    width: 200px; /* Ajusta el tamaño específico */
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 20px;
+}
+
+.product img[alt="Adidas Gazelle"] {
+    width: 180px; /* Ajusta el tamaño específico */
+    height: 200px;
+    object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor */
+    margin-top: 25px;
+}
+
+.product img[alt="Adidas La Trainer"] {
+    width: 180px; /* Ajusta el tamaño específico */
+    height: 200px;
+    object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor */
+    object-position: center; 
+    margin-top: 20px;
+}
+
+.product img[alt="Adidas Superstar"] {
+    width: 350px; /* Ajusta el tamaño específico */
+    height: 300px;
+    object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor */
+    object-position: center; 
+    margin-top: 20px;
+}
+
+.product img[alt="Adidas Superstar 1"] {
+    width: 150px; /* Ajusta el tamaño específico */
+    height: 150px;
+    object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor */
+    object-position: center; 
+    margin-top: 20px;
+}
+
+.product img[alt="Nike Dunk"] {
+    width: 300px; /* Ajusta el tamaño específico */
+    height: 300px;
+    object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor */
+    object-position: center; 
+    margin-top: 20px;
+}
+
+
 
 /* Ajuste para el giro deseado */
 .product:hover img {
@@ -263,6 +326,7 @@ div.product {
     font-size: 21px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: auto;
 }
 
 .buy-button:hover {
@@ -631,8 +695,15 @@ div.product {
 }
 
 .modal-body {
+    font-style: normal;
+    color: white;
     padding: 10px;
     margin: 10px;
+    display: flex;
+    flex-direction: column; /* Coloca la imagen y el texto uno debajo del otro */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center;
 }
 
 .modal-body ul {
@@ -643,6 +714,11 @@ div.product {
 .modal-footer {
     font-style: normal;
     color: white;
+    display: flex;
+    flex-direction: column; /* Coloca la imagen y el texto uno debajo del otro */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center;
 }
 
 .lista-de-filtros {
