@@ -268,7 +268,7 @@ div.product {
 }
 
 .product img[alt="Adidas Superstar"] {
-    width: 350px; /* Ajusta el tamaño específico */
+    width: 350px; /* Ajusta el tamaño específico */ 
     height: 300px;
     object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor */
     object-position: center; 
@@ -290,7 +290,6 @@ div.product {
     object-position: center; 
     margin-top: 20px;
 }
-
 
 
 /* Ajuste para el giro deseado */
@@ -765,26 +764,27 @@ div.product {
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5);
 }
 
-.modal-apli {
+.modal-apli, .modal-reset {
     outline: 0;
     background-color: #000000;
     max-width: 150px;
     color: white;
     border: none;
-    padding: 0.5em;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1em;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 1em;
+    flex: 1; /* Permite que cada botón ocupe el mismo ancho */
+    margin: 5px; /* Añade espacio entre los botones */
 }
 .modal-apli:hover {
     color: #0015ff; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5);
 }
-
+/*
 .modal-reset {
     margin-left: 10px;
     outline: 0;
@@ -800,21 +800,23 @@ div.product {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 1em;
-}
+} */
 
 .modal-reset:hover {
     color: #0015ff; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0px 4px 8px rgba(0, 34, 255, 0.5);
 }
 
-div.modal-buttons {
+.modal-buttons {
     text-align: center;
     display: flex;
-    justify-content: center;
-    gap: 2em; /* Espacio entre los botones */
+    justify-content: space-between;
+    gap: 1em; /* Espacio entre los botones */
     font-size: 1.5vw;
     flex-wrap: wrap; 
     padding: 1em;
+    align-items: center;
+    width: 100%; 
 }
 /* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
@@ -831,5 +833,12 @@ div.modal-buttons {
     }
     div.modal-buttons {
         gap: 0.5em; 
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .modal-apli, .modal-reset {
+        font-size: 14px; 
+        padding: 8px;
     }
 }
